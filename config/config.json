@@ -1,0 +1,25 @@
+{
+  "development": {
+    "username": "root",
+    "password": "wjdtjdgh123",
+    "database": "swc_db",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "wjdtjdgh123",
+    "database": "swc_db",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "wjdtjdgh123",
+    "database": "swc_db",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "salt" : "asdkjlascnklasq2319fsjaks1asd21"
+  
+  }
