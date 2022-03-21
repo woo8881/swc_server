@@ -5,6 +5,7 @@ const {
   Likes,
   Member,
   Board,
+  Team,
   Sequelize: { Op },
 } = require("../../models");
 sequelize.query("SET NAMES UTF8");
@@ -31,7 +32,6 @@ module.exports = {
         },
       })
         .then((result) => {
-          
           result !== null ? resolve(result) : resolve(false);
         })
 
@@ -45,7 +45,6 @@ module.exports = {
     return new Promise((resolve) => {
       User.findOrCreate({
         where: {
-
           user_id: body.user_id,
           user_email: body.user_email,
           user_nickname: body.user_nickname,
@@ -62,7 +61,7 @@ module.exports = {
           user_nickname: body.user_nickname,
           user_pw_question: body.user_pw_question,
           user_pw_answer: body.user_pw_answer,
-          user_image: body.user_image,
+          user_image: "null",
         },
         raw: false,
       })
@@ -83,7 +82,6 @@ module.exports = {
         {
           where: {
             user_id: body.user_id,
-            user_name: body.user_name,
             user_pw_question: body.user_pw_question,
             user_pw_answer: body.user_pw_answer,
           },
@@ -98,44 +96,55 @@ module.exports = {
         });
     });
   },
-  transMyInfo: (body) => {
+  transMyInfo: (body, imgData) => {
     return new Promise((resolve) => {
-      User.update(
-        {
-          user_tel: body.user_tel,
-          user_email: body.user_email,
-          user_nickname: body.user_nickname,
-          user_image: body.user_image,
-          
-        },
-
-        {
-          where: {
-            user_id: body.user_id,
+      if(imgData==null){
+        User.update(
+          {
+            user_tel: body.user_tel,
+            user_email: body.user_email,
+            user_nickname: body.user_nickname,
           },
-        }
-      )
-        .then((result) => {
-          result == 1 ? resolve(true) : resolve(false);
+  
+          {
+            where: {
+              user_id: body.user_id,
+            },
+          }
+        ) .then((result) => {
+          result == 1 ? resolve(result) : resolve(false);
         })
-        .catch((err) => {
-          
-          throw err;
-        });
+      }else{
+         User.update(
+          {
+            user_tel: body.user_tel,
+            user_email: body.user_email,
+            user_nickname: body.user_nickname,
+            user_image: imgData,
+          },
+  
+          {
+            where: {
+              user_id: body.user_id,
+            },
+          }
+        ) .then((result) => {
+          result == 1 ? resolve(result) : resolve(false);
+        })
+      }
     });
   },
 
   deleteUser: (body, hash) => {
     return new Promise((resolve) => {
-      User.destroy(
-        {
-        
+      User.destroy({
         where: {
           user_id: body.user_id,
-          user_password:hash
+          user_password: hash,
         },
       })
-        .then((result) => {console.log(result)
+        .then((result) => {
+          console.log(result);
           result === 1 ? resolve(true) : resolve(false);
         })
         .catch((err) => {
@@ -147,18 +156,24 @@ module.exports = {
   viewMyInfo: (views) => {
     return new Promise((resolve) => {
       User.findOne({
-        include: [{ model: Likes },  { model: Member }],
+        // include: [{ model: Likes },  { model: Member },/* {model: Team}*/],
 
-        attributes: { exclude: ["user_id", "user_password", "user_pw_question", "user_pw_answer","user_birth"] },
+        attributes: {
+          exclude: [
+            "user_id",
+            "user_password",
+            "user_pw_question",
+            "user_pw_answer",
+            "user_birth",
+          ],
+        },
         where: {
           user_id: views,
         },
       })
         .then((result) => {
-          console.log(result.dataValues.likes)
           result !== null ? resolve(result) : resolve(false);
         })
-
         .catch((err) => {
           resolve(false);
           throw err;
@@ -172,18 +187,19 @@ module.exports = {
       offset = limit * (page - 1);
     }
     return new Promise((resolve) => {
-      User.findOne({
-        include: [{ model: Board }],
-attributes:['user_id'],
+      Board.findAll({
+        // include: [{ model: Board }],
+        // attributes: ["user_id"],
         offset: offset,
         limit: limit,
         // order: [["board_date", "ASC"]],
 
-        // attributes: { exclude: ["board_content", "board_file"] },
+        attributes: { exclude: ["board_id"] },
         where: {
           user_id: myBoard,
         },
-      }).then((result) => {console.log(result)
+      }).then((result) => {
+        console.log(result);
         result !== null ? resolve(result) : resolve(false);
       });
     });

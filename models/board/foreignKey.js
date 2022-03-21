@@ -18,6 +18,10 @@ module.exports = db => {
       foreignKey: "board_id",
       sourceKey: "board_id"
     });
+    db.Board.hasMany(db.Photo,{
+      foreignKey:"board_id",
+      sourceKey:"board_id"
+    });
 
 }
 

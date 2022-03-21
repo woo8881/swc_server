@@ -51,7 +51,7 @@ module.exports = {
       let obj = {};
       if (result == false) {
         obj["suc"] = false;
-        obj["err"] = "아이디 or 질문 or 답변이 틀리거나 비밀번호가 변경하기 전 이랑 같음";
+        obj["err"] = "아이디 or 비밀번호 찾기 질문,답변이 틀리거나 비밀번호가 변경하기 전 이랑 같음";
         res.send(obj);
       } else {
         obj["suc"] = true;
@@ -61,7 +61,8 @@ module.exports = {
   },
   transMyInfo: (req, res) => {
     const body = req.body;
-    userService.transMyInfo(body).then((result) => {
+    const imgData = req.file.path //게시물에 올리는 사진이랑 같은 폴더에 올려도 되나?
+    userService.transMyInfo(body, imgData).then((result) => {
       let obj = {};
       if (result == false) {
         obj["suc"] = false;
@@ -69,6 +70,7 @@ module.exports = {
         res.send(obj);
       } else {
         obj["suc"] = true;
+        // obj["transInfo"]  =result;
         res.send(obj);
       }
     });
@@ -80,7 +82,7 @@ module.exports = {
       let obj = {};
       if (result == false) {
         obj["suc"] = false;
-        obj["err"] = "아이디가 없음";
+        obj["err"] = "아이디가 없거나 비밀번호가 틀림";
         res.send(obj);
       } else {
         obj["suc"] = true;
@@ -96,7 +98,7 @@ module.exports = {
         obj["suc"] = false;
         obj["err"] = "아이디가 없음";
         res.send(obj);
-      } else {
+      } else {console.log(result);
         obj["suc"] = true;
         obj["info"] = result;
         res.send(obj);
@@ -110,13 +112,14 @@ module.exports = {
       let obj = {};
       if (result == false) {
         obj["suc"] = false;
-        obj["err"] = "아이디가 없음";
+        obj["err"] = "아이디가 틀리거나 게시글이 없음";
         res.send(obj);
       } else {
         obj["suc"] = true;
-        obj["info"] = result;
+        obj["boardList"] = result;
         res.send(obj);
       }
     });
   },
 };
+

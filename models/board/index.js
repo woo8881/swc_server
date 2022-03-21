@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         board_hits:{
             type:DataTypes.INTEGER,
-            allowNull:true,
+            allowNull:false,
         },
         board_date:{
             type:DataTypes.DATE,
@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull:false,
         },
         board_img:{
-            type:DataTypes.STRING(255),
+            type: DataTypes.STRING(3000),
             allowNull:true,
         },
         board_detail:{

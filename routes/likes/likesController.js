@@ -10,8 +10,26 @@ const salt = require(path.join(__dirname, '../../config', 'config.json')).salt;
 module.exports = {
     likes:(req,res)=>{
         const body = req.body;
-        likesService.likes(body).then((result)=>
-            res.send(result)
+        likesService.likes(body).then((result)=>{
+            console.log(result)
+            let obj={}
+            if(result=="좋아요 취소"){
+                obj["suc"]=true;
+                obj["likes"]="좋아요 취소"
+                res.send(obj)
+            }else if(result[1]==true){
+                obj["suc"]=true;
+                obj["likes"] = result[0];
+                res.send(obj);
+            }else{
+                obj["suc"]=false
+                obj["err"]="좋아요 실패"
+            }
+            
+        }
+        
+            
         )
     },
 }
+

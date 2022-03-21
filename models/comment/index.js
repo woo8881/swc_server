@@ -19,7 +19,12 @@ module.exports = (sequelize, DataTypes) => {
         comment_parents:{
             type:DataTypes.INTEGER,
             allowNull:true,
-        }
+        },
+      //   comment_state:{
+      //     type:DataTypes.STRING(300),
+      //     allowNull:false,
+      // },
+      
       },
       {
         charset: "utf8",

@@ -5,7 +5,19 @@ module.exports = {
         const team = req.params.team_id;
         const user = req.params.user_id;
          memberService.teamJoin(team, user).then(result => {
-             res.send(result);
+             console.log(result)
+            let obj={}
+            if(result==1){
+                obj["suc"]=true;
+                obj["member"]="공모전 참가 취소"
+                res.send(obj)
+            }else  if(result[1]==true){
+                obj["suc"]=true;
+                res.send(obj);
+            }else{
+                obj["suc"]=false
+                obj["err"]="공모전 참가 실패"
+            }
          })
      },
     // useteaminfo: (req, res) => {

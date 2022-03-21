@@ -26,9 +26,11 @@ module.exports = {
               member_id: result[0].member_id,
             },
           }).then((desresult) => {
-            desresult[1] !== 1 ? resolve("공모전 참가 취소") : resolve(false);
+            // console.log(desresult)
+            desresult[1] !== 1 ? resolve(desresult) : resolve(false);
           });
         } else {
+          // console.log(result)
           result[1] == 1 ? resolve(result) : resolve(false);
         }
       });

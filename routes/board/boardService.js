@@ -6,32 +6,51 @@ const {
   Comment,
   Likes,
   Team,
+  Photo,
   Sequelize: { Op },
 } = require("../../models");
+
 sequelize.query("SET NAMES UTF8");
-// moment.tz.setDefault("Asia/Seoul");
-// require("moment-timezone");
+moment.tz.setDefault("Asia/Seoul");
+require("moment-timezone");
 //Todo social connet login Api will create
 module.exports = {
-  makeBoard: (body) => {
+  makeBoard: (body, imgData) => {
     return new Promise((resolve) => {
-      Board.create({
+      if(imgData == null){
+        Board.create({
+          board_title: body.board_title,
+          board_content: body.board_content,
+          board_date: moment().format("YYYY-MM-DD"),
+          board_type: body.board_type,
+          board_hits: 0,
+          board_state: "생성",
+          board_detail: body.board_detail,
+          user_id: body.user_id,
+        }).then((result) => {
+          result !== null ? resolve(result) : resolve(false);
+        });
+      }else{Board.create({
         board_title: body.board_title,
         board_content: body.board_content,
-        board_date: moment().format("YYYY-MM-DD HH:MM:SS"),
+        board_date: moment().format("YYYY-MM-DD"),
         board_type: body.board_type,
         board_hits: 0,
-        board_img: body.board_img,
+        board_img: imgData.path,
         board_state: "생성",
         board_detail: body.board_detail,
         user_id: body.user_id,
       }).then((result) => {
         result !== null ? resolve(result) : resolve(false);
       });
-    }).catch((err) => {
-      resolve(false);
-      throw err;
-    });
+    
+    }
+      
+    })
+    // .catch((err) => {
+    //   resolve(false);
+    //   throw err;
+    // });
   },
 
   inquiryBoard: (boardType, page) => {
@@ -45,7 +64,7 @@ module.exports = {
         offset: offset,
         limit: limit,
         order: [["board_date", "ASC"]],
-        attributes: { exclude: ["board_content", "board_file"] },
+        attributes: { exclude: ["board_content", "board_file", "board_img"] },
         where: {
           board_type: boardType,
         },
@@ -81,12 +100,10 @@ module.exports = {
           }
         )
           .then(() => {
-            console.log(result.dataValues);
             let obj = {};
             obj["likes_count"] = result.likes.length;
             obj["result"] = result.dataValues;
             delete result.dataValues.likes;
-
             obj !== null ? resolve(obj) : resolve(false);
           })
           .catch((err) => {
@@ -95,39 +112,61 @@ module.exports = {
       });
     });
   },
-  remakeBoard: (body) => {
+  remakeBoard: (body, imgData) => {
     return new Promise((resolve) => {
-      Board.update(
-        {
-          board_content: body.board_content,
-          board_title: body.board_title,
-          board_date: body.board_date,
-          board_type: body.board_type,
-          board_file: body.board_file,
-          board_state: "수정",
-        },
-        {
-          where: {
-            board_id: body.board_id,
+      if(imgData==null){
+        Board.update(
+          {
+            board_content: body.board_content,
+            board_title: body.board_title,
+            board_date:  moment().format("YYYY-MM-DD"),
+            board_type: body.board_type,
+            board_state: "수정",
           },
-        }
-      ).then((result) => {
-        result == 1 ? resolve(true) : resolve(false);
-        console.log(body);
-      });
+          {
+            where: {
+              board_id: body.board_id,
+            },
+          }
+        ) .then((result) => {
+          result == 1 ? resolve(true) : resolve(false);
+          console.log(body);
+        });
+      }else{
+        Board.update(
+          {
+            board_content: body.board_content,
+            board_title: body.board_title,
+            board_date:  moment().format("YYYY-MM-DD"),
+            board_type: body.board_type,
+            board_img: imgData.path,
+            board_state: "수정",
+          },
+          {
+            where: {
+              board_id: body.board_id,
+            },
+          }
+        ) .then((result) => {
+          result == 1 ? resolve(true) : resolve(false);
+          console.log(body);
+        });
+      }
+    
+     
     });
   },
 
-  deleteBoard: (body) => {
+  deleteBoard: (boardId) => {
     return new Promise((resolve) => {
       Board.destroy({
         where: {
-          board_id: body.board_id,
+          board_id: boardId,
         },
       })
         .then((result) => {
           result === 1 ? resolve(true) : resolve(false);
-          console.log(body);
+          // console.log(body);
         })
         .catch((err) => {
           resolve(false);
@@ -146,7 +185,7 @@ module.exports = {
         offset: offset,
         limit: limit,
         order: [["board_date", "ASC"]],
-        // attributes: { exclude: ["board_content", "board_file"] },
+        attributes: { exclude: ["board_content", "board_file", "board_img"] },
         where: {
           [Op.or]: [
             { board_content: { [Op.like]: "%" + search + "%" } },

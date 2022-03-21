@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const memberController = require('./memberController');
-
+const authUtil = require('../../middlewares/auth').checkToken
 
 //팀 참가하기
-router.get('/teamJoin/:user_id/:team_id', memberController.teamJoin);
+router.get('/teamJoin/:user_id/:team_id', authUtil, memberController.teamJoin);
 // //팀 조회
 // router.post('/teamInquiry', memberController.teamInquiry);
 // //팀 수정
