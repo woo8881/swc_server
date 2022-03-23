@@ -85,7 +85,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json()); 
 
-app.set('views', __dirname + '/views');
+
 
 app.use(methodOverride());
 app.use(cors());
@@ -98,3 +98,13 @@ http.createServer(app).listen(8001, () => {
   console.log("Express Server Start");
 });
 
+
+
+
+app.get('/', (req, res) => {
+  res.render('index')
+})
+
+app.set('view engine', 'ejs')
+
+app.set('views', __dirname + '/views');
