@@ -2,9 +2,9 @@
   "name": "myapp",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "web.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon web.js"
   },
   "author": "",
   "license": "ISC",

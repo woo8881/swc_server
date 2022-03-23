@@ -1,0 +1,120 @@
+ 2022-03-23 02:03:73 || [ error ] ▶ uncaughtException: Access denied for user 'bcd1031'@'112.214.108.69' (using password: YES)
+SequelizeAccessDeniedError: Access denied for user 'bcd1031'@'112.214.108.69' (using password: YES)
+    at ConnectionManager.connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\mysql\connection-manager.js:94:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ConnectionManager._connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:216:24)
+    at async C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32
+ 2022-03-23 02:03:74 || [ error ] ▶ uncaughtException: Access denied for user 'bcd1031'@'112.214.108.69' (using password: YES)
+SequelizeAccessDeniedError: Access denied for user 'bcd1031'@'112.214.108.69' (using password: YES)
+    at ConnectionManager.connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\mysql\connection-manager.js:94:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ConnectionManager._connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:216:24)
+    at async C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32
+ 2022-03-23 02:03:74 || [ error ] ▶ uncaughtException: Access denied for user 'bcd1031'@'112.214.108.69' (using password: YES)
+SequelizeAccessDeniedError: Access denied for user 'bcd1031'@'112.214.108.69' (using password: YES)
+    at ConnectionManager.connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\mysql\connection-manager.js:94:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ConnectionManager._connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:216:24)
+    at async C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32
+ 2022-03-23 02:03:74 || [ error ] ▶ uncaughtException: Access denied for user 'bcd1031'@'112.214.108.69' (using password: YES)
+SequelizeAccessDeniedError: Access denied for user 'bcd1031'@'112.214.108.69' (using password: YES)
+    at ConnectionManager.connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\mysql\connection-manager.js:94:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ConnectionManager._connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:216:24)
+    at async C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32
+ 2022-03-23 15:03:90 || [ error ] ▶ uncaughtException: Host '121.162.118.71' is not allowed to connect to this MySQL server
+SequelizeConnectionError: Host '121.162.118.71' is not allowed to connect to this MySQL server
+    at ConnectionManager.connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\mysql\connection-manager.js:102:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ConnectionManager._connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:216:24)
+    at async C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32
+ 2022-03-23 15:03:91 || [ error ] ▶ uncaughtException: Host '121.162.118.71' is not allowed to connect to this MySQL server
+SequelizeConnectionError: Host '121.162.118.71' is not allowed to connect to this MySQL server
+    at ConnectionManager.connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\mysql\connection-manager.js:102:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ConnectionManager._connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:216:24)
+    at async C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32
+ 2022-03-23 15:03:91 || [ error ] ▶ uncaughtException: Host '121.162.118.71' is not allowed to connect to this MySQL server
+SequelizeConnectionError: Host '121.162.118.71' is not allowed to connect to this MySQL server
+    at ConnectionManager.connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\mysql\connection-manager.js:102:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ConnectionManager._connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:216:24)
+    at async C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32
+ 2022-03-23 15:03:92 || [ error ] ▶ uncaughtException: Host '121.162.118.71' is not allowed to connect to this MySQL server
+SequelizeConnectionError: Host '121.162.118.71' is not allowed to connect to this MySQL server
+    at ConnectionManager.connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\mysql\connection-manager.js:102:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ConnectionManager._connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:216:24)
+    at async C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32
+ 2022-03-23 15:03:20 || [ error ] ▶ uncaughtException: Host '121.162.118.71' is not allowed to connect to this MySQL server
+SequelizeConnectionError: Host '121.162.118.71' is not allowed to connect to this MySQL server
+    at ConnectionManager.connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\mysql\connection-manager.js:102:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ConnectionManager._connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:216:24)
+    at async C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32
+ 2022-03-23 15:03:21 || [ error ] ▶ uncaughtException: Host '121.162.118.71' is not allowed to connect to this MySQL server
+SequelizeConnectionError: Host '121.162.118.71' is not allowed to connect to this MySQL server
+    at ConnectionManager.connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\mysql\connection-manager.js:102:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ConnectionManager._connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:216:24)
+    at async C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32
+ 2022-03-23 15:03:22 || [ error ] ▶ uncaughtException: Host '121.162.118.71' is not allowed to connect to this MySQL server
+SequelizeConnectionError: Host '121.162.118.71' is not allowed to connect to this MySQL server
+    at ConnectionManager.connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\mysql\connection-manager.js:102:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ConnectionManager._connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:216:24)
+    at async C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32
+ 2022-03-23 15:03:22 || [ error ] ▶ uncaughtException: Host '121.162.118.71' is not allowed to connect to this MySQL server
+SequelizeConnectionError: Host '121.162.118.71' is not allowed to connect to this MySQL server
+    at ConnectionManager.connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\mysql\connection-manager.js:102:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ConnectionManager._connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:216:24)
+    at async C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32
+ 2022-03-23 15:03:11 || [ error ] ▶ uncaughtException: Host '121.162.118.71' is not allowed to connect to this MySQL server
+SequelizeConnectionError: Host '121.162.118.71' is not allowed to connect to this MySQL server
+    at ConnectionManager.connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\mysql\connection-manager.js:102:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ConnectionManager._connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:216:24)
+    at async C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32
+ 2022-03-23 15:03:12 || [ error ] ▶ uncaughtException: Host '121.162.118.71' is not allowed to connect to this MySQL server
+SequelizeConnectionError: Host '121.162.118.71' is not allowed to connect to this MySQL server
+    at ConnectionManager.connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\mysql\connection-manager.js:102:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ConnectionManager._connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:216:24)
+    at async C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32
+ 2022-03-23 15:03:12 || [ error ] ▶ uncaughtException: Host '121.162.118.71' is not allowed to connect to this MySQL server
+SequelizeConnectionError: Host '121.162.118.71' is not allowed to connect to this MySQL server
+    at ConnectionManager.connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\mysql\connection-manager.js:102:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ConnectionManager._connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:216:24)
+    at async C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32
+ 2022-03-23 15:03:13 || [ error ] ▶ uncaughtException: Host '121.162.118.71' is not allowed to connect to this MySQL server
+SequelizeConnectionError: Host '121.162.118.71' is not allowed to connect to this MySQL server
+    at ConnectionManager.connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\mysql\connection-manager.js:102:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ConnectionManager._connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:216:24)
+    at async C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32
+ 2022-03-23 15:03:57 || [ error ] ▶ uncaughtException: Host '121.162.118.71' is not allowed to connect to this MySQL server
+SequelizeConnectionError: Host '121.162.118.71' is not allowed to connect to this MySQL server
+    at ConnectionManager.connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\mysql\connection-manager.js:102:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ConnectionManager._connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:216:24)
+    at async C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32
+ 2022-03-23 15:03:58 || [ error ] ▶ uncaughtException: Host '121.162.118.71' is not allowed to connect to this MySQL server
+SequelizeConnectionError: Host '121.162.118.71' is not allowed to connect to this MySQL server
+    at ConnectionManager.connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\mysql\connection-manager.js:102:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ConnectionManager._connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:216:24)
+    at async C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32
+ 2022-03-23 15:03:59 || [ error ] ▶ uncaughtException: Host '121.162.118.71' is not allowed to connect to this MySQL server
+SequelizeConnectionError: Host '121.162.118.71' is not allowed to connect to this MySQL server
+    at ConnectionManager.connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\mysql\connection-manager.js:102:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ConnectionManager._connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:216:24)
+    at async C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32
+ 2022-03-23 15:03:59 || [ error ] ▶ uncaughtException: Host '121.162.118.71' is not allowed to connect to this MySQL server
+SequelizeConnectionError: Host '121.162.118.71' is not allowed to connect to this MySQL server
+    at ConnectionManager.connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\mysql\connection-manager.js:102:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ConnectionManager._connect (C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:216:24)
+    at async C:\Users\sung ho\Desktop\SWC_SE\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32

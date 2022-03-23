@@ -85,7 +85,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json()); 
 
-
+app.set('views', __dirname + '/views');
 
 app.use(methodOverride());
 app.use(cors());
@@ -94,7 +94,7 @@ app.engine("html", ejs.renderFile);
 sequelize.sync();
 app.use('/', router);
 
-http.createServer(app).listen(5005, () => {
+http.createServer(app).listen(8001, () => {
   console.log("Express Server Start");
 });
 
