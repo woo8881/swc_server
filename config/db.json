@@ -1,25 +1,22 @@
 {
-    "development": {
-      "username": "root",
-      "password": "wjdtjdgh123",
-      "database": "swc_db",
-      "host": "localhost",
-      "port": "3306",
-      "dialect": "mysql",
-      "timezone" : "+09:00",
-      "logging": true
-    },
-    "production": {
-      "username": "root",
-      "password": "wjdtjdgh123",
-      "database": "swc_db",
-      "host": "localhost",
-      "port": "3306",
-      "dialect": "mysql",
-      "timezone" : "+09:00",
-      "logging": true
-    }
+  "development": {
+    "username": "bcd1031",
+    "password": "dlekqhd11!@",
+    "database": "bcd1031",
+    "host": "swc.cafe24app.com",
+    "port": "3306",
+    "dialect": "mysql",
+    "timezone" : "+09:00",
+    "logging": true
+  },
+  "production": {
+    "username": "bcd1031",
+    "password": "dlekqhd11!@",
+    "database": "bcd1031",
+    "host": "swc.cafe24app.com",
+    "port": "3306",
+    "dialect": "mysql",
+    "timezone" : "+09:00",
+    "logging": true
   }
-  
-
-  
+}

@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "root",
-    "password": "wjdtjdgh123",
-    "database": "swc_db",
-    "host": "127.0.0.1",
+    "username": "bcd1031",
+    "password": "dlekqhd11!@",
+    "database": "bcd1031",
+    "host": "cafe24app.com",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": "wjdtjdgh123",
-    "database": "swc_db",
-    "host": "127.0.0.1",
+    "username": "bcd1031",
+    "password": "dlekqhd11!@",
+    "database": "bcd1031",
+    "host": "cafe24app.com",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "wjdtjdgh123",
-    "database": "swc_db",
-    "host": "127.0.0.1",
+    "username": "bcd1031",
+    "password": "dlekqhd11!@",
+    "database": "bcd1031",
+    "host": "cafe24app.com",
     "dialect": "mysql"
   },
   "salt" : "asdkjlascnklasq2319fsjaks1asd21"
