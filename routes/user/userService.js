@@ -120,7 +120,7 @@ module.exports = {
             user_tel: body.user_tel,
             user_email: body.user_email,
             user_nickname: body.user_nickname,
-            user_image: imgData,
+            user_image: imgData.path,
           },
   
           {
