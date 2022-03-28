@@ -20,10 +20,10 @@ module.exports = (sequelize, DataTypes) => {
             type:DataTypes.INTEGER,
             allowNull:true,
         },
-      //   comment_state:{
-      //     type:DataTypes.STRING(300),
-      //     allowNull:false,
-      // },
+        comment_state:{
+          type:DataTypes.STRING(300),
+          allowNull:false,
+        },
       
       },
       {

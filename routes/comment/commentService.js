@@ -20,7 +20,7 @@ module.exports = {
         user_id: body.user_id,
         board_id: body.board_id,
         comment_parents: body.comment_parents,
-        // comment_state: "생성"
+        comment_state: "생성"
       }).then((result) => {
         // console.log(result.dataValues.comment_parents)
         if (result.dataValues.comment_parents == null) {
