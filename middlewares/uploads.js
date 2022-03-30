@@ -12,7 +12,7 @@ const imageFilter = (req, file, cb) => {
 var storage = multer.diskStorage({
   destination: (req, file, cb) => {
     // 서버에 저장될 위치
-    cb(null, '/home/hosting_user/bcd1031/apps/images'); //images폴더에 저장해야함 지정방법 찾아보기
+    cb(null, '/home/hosting_user/bcd1031/apps/git bcd1031@swc.cafe24app.com:bcd1031_swc'); //images폴더에 저장해야함 지정방법 찾아보기
   },
 
   filename: (req, file, cb) => {
