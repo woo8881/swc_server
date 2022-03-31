@@ -95,7 +95,7 @@ sequelize.sync();
 app.use('/', router);
 
 http.createServer(app).listen(8001, () => {
-  fs.writeFile('images','image',function(err)
+  fs.writeFile('/home/hosting_users/bcd1031/apps/bcd1031_swc/images','images',function(err)
   { if (err === null)
      { console.log('success');
      } else {
