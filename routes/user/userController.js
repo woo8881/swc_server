@@ -63,6 +63,9 @@ module.exports = {
     const body = req.body;
     const imgData = req.file
     console.log(req.file)
+    console.log("디렉토리: %s, 파일이름: %s, 확장자: %s", dirName, baseName, extName);
+
+출처: https://kinghell.tistory.com/194 [Hyunsoo]
     userService.transMyInfo(body, imgData).then((result) => {
       let obj = {};
       if (result == false) {
