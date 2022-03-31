@@ -99,7 +99,7 @@ sequelize.sync();
 app.use('/', router);
 
 http.createServer(app).listen(8001, () => {
-  fs.readdir('images', (error) => {
+  fs.readdir(path.resolve(__dirname, '/home/hosting_users/bcd1031/apps/bcd1031_swc/images'), (error) => {
     // uploads 폴더 없으면 생성
     if (error) {
       fs.mkdirSync(path.resolve(__dirname, '/home/hosting_users/bcd1031/apps/bcd1031_swc/images'),  { recursive: true });
