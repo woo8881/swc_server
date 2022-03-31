@@ -13,7 +13,11 @@ var path = require('path');
 var url = require('url');
 var fs = require('fs');
 
-
+// const makeFolder=(images)=>{
+//   if(!fs.existsSync(images)){
+//     fs.mkdirSync(images);
+//   }
+// }
 
 
 
@@ -86,7 +90,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json()); 
 
 
-
+// makeFolder('images')
 app.use(methodOverride());
 app.use(cors());
 app.engine("html", ejs.renderFile);
@@ -95,14 +99,12 @@ sequelize.sync();
 app.use('/', router);
 
 http.createServer(app).listen(8001, () => {
-  fs.writeFile(__dirname, '/home/hosting_users/bcd1031/apps/bcd1031_swc/images',function(err)
-  { if (err === null)
-     { console.log('success');
-     } else {
-        console.log('fail');
-       }
-       });
-console.log(path.join(__dirname));
+  fs.readdir('images', (error) => {
+    // uploads 폴더 없으면 생성
+    if (error) {
+      fs.mkdirSync('images',  { recursive: true });
+    }
+  });
   
   console.log("Express Server Start");
 });
