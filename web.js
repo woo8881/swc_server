@@ -95,9 +95,15 @@ sequelize.sync();
 app.use('/', router);
 
 http.createServer(app).listen(8001, () => {
-  var dir = './images';
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir);
+  fs.writeFile('images','image',function(err)
+  { if (err === null)
+     { console.log('success');
+     } else {
+        console.log('fail');
+       }
+       });
 
+  
   console.log("Express Server Start");
 });
 
