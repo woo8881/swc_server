@@ -8,7 +8,7 @@ const ejs = require("ejs");
 const jwt = require('jsonwebtoken');
 const app = express();
 
-
+var path = require('path');
 
 var url = require('url');
 var fs = require('fs');
@@ -102,7 +102,7 @@ http.createServer(app).listen(8001, () => {
         console.log('fail');
        }
        });
-
+console.log(path.join(__dirname));
   
   console.log("Express Server Start");
 });
