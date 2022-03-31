@@ -1,6 +1,6 @@
 const multer = require("multer");
 const path = require('path');
-
+var fs = require('fs');
 // const storage = multer.memoryStorage()
 // const upload = multer({ storage: storage })
 // 이미지 받았을 때 필터링
@@ -13,13 +13,16 @@ const imageFilter = (req, file, cb) => {
 
 var storage = multer.diskStorage({
   destination: (req, file, cb) => {
+
+    fs.writeFile(__dirname, "", images,function(err){
+       if (err === null) {
+          console.log('success');
+         } else {
+            console.log('fail'); } });
+
     // 서버에 저장될 위치
     cb(null, __dirname, "../middlewares")
-    console.log(path.join(__dirname, "../middlewares"));
-    console.log(path.join(__dirname, "../"));
-    console.log(path.join(__dirname,));
-    console.log(path.resolve(__dirname,));
-    console.log(path.join(__filename, "../"));
+    // console.log(path.join(__dirname, "../middlewares"));
   },
 
   filename: (req, file, cb) => {
