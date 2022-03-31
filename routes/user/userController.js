@@ -70,6 +70,7 @@ module.exports = {
         res.send(obj);
       } else {
         obj["suc"] = true;
+        obj["result"] =result;
         // obj["transInfo"]  =result;
         res.send(obj);
       }
