@@ -15,7 +15,8 @@ var storage = multer.diskStorage({
   destination: (req, file, cb) => {
     // 서버에 저장될 위치
     cb(null, __dirname, "../home")
-    console.log(path.join(__dirname, "../images"));
+    console.log(path.join(__dirname, "../home"));
+    console.log(path.join(__dirname, "../"));
   },
 
   filename: (req, file, cb) => {
