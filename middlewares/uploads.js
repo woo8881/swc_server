@@ -13,16 +13,9 @@ const imageFilter = (req, file, cb) => {
 
 var storage = multer.diskStorage({
   destination: (req, file, cb) => {
-
-    fs.writeFile(__dirname, "", images,function(err){
-       if (err === null) {
-          console.log('success');
-         } else {
-            console.log('fail'); } });
-
     // 서버에 저장될 위치
-    cb(null, __dirname, "../middlewares")
-    // console.log(path.join(__dirname, "../middlewares"));
+    cb(null, __dirname, "images")
+    console.log(path.join(__dirname, "images"));
   },
 
   filename: (req, file, cb) => {
