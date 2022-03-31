@@ -61,7 +61,8 @@ module.exports = {
   },
   transMyInfo: (req, res) => {
     const body = req.body;
-    const imgData = req.file //게시물에 올리는 사진이랑 같은 폴더에 올려도 되나?
+    const imgData = req.file
+    console.log(req.file)
     userService.transMyInfo(body, imgData).then((result) => {
       let obj = {};
       if (result == false) {
@@ -70,7 +71,7 @@ module.exports = {
         res.send(obj);
       } else {
         obj["suc"] = true;
-        obj["result"] =result;
+        // obj["result"] =result;
         // obj["transInfo"]  =result;
         res.send(obj);
       }
