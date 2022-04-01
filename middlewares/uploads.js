@@ -14,8 +14,8 @@ const imageFilter = (req, file, cb) => {
 var storage = multer.diskStorage({
   destination: (req, file, cb) => {
     // 서버에 저장될 위치
-    cb(null,path.join( __dirname,"../home/hosting_users/bcd1031/apps/bcd1031_swc/images"))
-    console.log(path.join("/home/hosting_users/bcd1031/apps/bcd1031_swc/images"));
+    cb(null,path.resolve( __dirname,"/home/hosting_users/bcd1031/apps/bcd1031_swc/images"))
+    console.log(path.resolve("/home/hosting_users/bcd1031/apps/bcd1031_swc/images"));
   },
 
   filename: (req, file, cb) => {
