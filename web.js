@@ -100,8 +100,9 @@ app.use('/', router);
 
 http.createServer(app).listen(8001, () => {
   makeFolder(path.resolve(__dirname, '/home/hosting_users/bcd1031/apps/bcd1031_swc/images'))
-  // console.log(path.resolve(__dirname, '/home/hosting_users/bcd1031/apps/bcd1031_swc/images'));
-  console.log(__dirname)
+  console.log(path.resolve(__dirname, '/home/hosting_users/bcd1031/apps/bcd1031_swc/images'));
+  consoel.log(makeFolder)
+  // console.log(__dirname)
   console.log("Express Server Start");
 });
 
