@@ -13,11 +13,12 @@ var path = require('path');
 var url = require('url');
 var fs = require('fs');
 
-const makeFolder=(dir)=>{
-  if(!fs.existsSync(dir)){
-    fs.mkdirSync(dir);
-  }
-}
+// const makeFolder=(dir)=>{
+//   if(!fs.existsSync(dir)){
+//     fs.mkdirSync(dir);
+//     console.log(dir)
+//   }
+// }
 
 
 
@@ -81,7 +82,12 @@ const makeFolder=(dir)=>{
 // app.use(morgan('dev'));
 
 
-
+function mkdir( dirPath ) {
+  const isExists = fs.existsSync( dirPath );
+  if( !isExists ) {
+      fs.mkdirSync( dirPath, { recursive: true } );
+  }
+}
 
 // winston.info(message)
 
@@ -99,8 +105,14 @@ sequelize.sync();
 app.use('/', router);
 
 http.createServer(app).listen(8001, () => {
- let fas = makeFolder("/home/hosting_users/bcd1031/apps/bcd1031_swc/images")
-  console.log(fas)
+  mkdir('/home/hosting_users/bcd1031/apps/bcd1031_swc/images')
+  // fs.mkdirSync("/hw");
+    // if(!fs.existsSync("/home/hosting_users/bcd1031/apps/bcd1031_swc/images")){
+    //   fs.mkdirSync("/home/hosting_users/bcd1031/apps/bcd1031_swc/images");
+    // }
+  // fs.mkdirSync("/home/hosting_users/bcd1031/apps/bcd1031_swc/images");
+//  let fas = makeFolder("/home/hosting_users/bcd1031/apps/bcd1031_swc/images")
+//   console.log(fas)
   // console.log(path.resolve(__dirname, '/home/hosting_users/bcd1031/apps/bcd1031_swc/images'));
   // console.log(makeFolder)
   // console.log(__dirname)
