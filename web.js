@@ -82,12 +82,12 @@ var fs = require('fs');
 // app.use(morgan('dev'));
 
 
-function mkdir( dirPath ) {
-  const isExists = fs.existsSync( dirPath );
-  if( !isExists ) {
-      fs.mkdirSync( dirPath, { recursive: true } );
-  }
-}
+// function mkdir( dirPath ) {
+//   const isExists = fs.existsSync( dirPath );
+//   if( !isExists ) {
+//       fs.mkdirSync( dirPath, { recursive: true } );
+//   }
+// }
 
 // winston.info(message)
 
@@ -105,8 +105,8 @@ sequelize.sync();
 app.use('/', router);
 
 http.createServer(app).listen(8001, () => {
- const qwe = mkdir('/images')
- console.log(qwe)
+//  const qwe = mkdir('/images')
+//  console.log(qwe)
   // fs.mkdirSync("/hw");
     // if(!fs.existsSync("/home/hosting_users/bcd1031/apps/bcd1031_swc/images")){
     //   fs.mkdirSync("/home/hosting_users/bcd1031/apps/bcd1031_swc/images");
