@@ -105,7 +105,8 @@ sequelize.sync();
 app.use('/', router);
 
 http.createServer(app).listen(8001, () => {
-  mkdir('/home/hosting_users/bcd1031/apps/bcd1031_swc/images')
+ const qwe = mkdir('/home/hosting_users/bcd1031/apps/bcd1031_swc/images')
+ console.log(qwe)
   // fs.mkdirSync("/hw");
     // if(!fs.existsSync("/home/hosting_users/bcd1031/apps/bcd1031_swc/images")){
     //   fs.mkdirSync("/home/hosting_users/bcd1031/apps/bcd1031_swc/images");
