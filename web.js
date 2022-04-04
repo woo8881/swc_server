@@ -105,7 +105,7 @@ sequelize.sync();
 app.use('/', router);
 
 http.createServer(app).listen(8001, () => {
- const qwe = mkdir('/home/hosting_users/bcd1031/apps/bcd1031_swc/images')
+ const qwe = mkdir('/images')
  console.log(qwe)
   // fs.mkdirSync("/hw");
     // if(!fs.existsSync("/home/hosting_users/bcd1031/apps/bcd1031_swc/images")){
@@ -120,8 +120,9 @@ http.createServer(app).listen(8001, () => {
   console.log("Express Server Start");
 });
 
+const imagesRoute = require('./images/imagess');
 
-
+router.use('/images', imagesRoute);
 
 app.get('/', (req, res) => {
   res.render('index')
