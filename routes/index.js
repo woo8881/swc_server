@@ -14,7 +14,7 @@ router.use('/board', boardRoute);
 router.use('/comment', commentRoute);
 router.use('/member', memberRoute);
 router.use('/team', teamRoute);
-router.use('/likes', likesRoute)
+router.use('/likes', likesRoute);
 router.use('/photo', photoRoute);
 
 
