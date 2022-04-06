@@ -105,6 +105,7 @@ sequelize.sync();
 app.use('/', router);
 
 http.createServer(app).listen(8001, () => {
+  path.resolve('/images')
 //  const qwe = mkdir('/home/hosting_users/bcd1031/apps/bcd1031_swc/images')
 //  console.log(qwe)
   // fs.mkdirSync("/hw");
