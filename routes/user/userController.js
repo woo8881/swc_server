@@ -90,7 +90,8 @@ module.exports = {
         obj["suc"] = true;
         res.send(obj);
       }
-    });
+    }); 
+  
   },
   viewMyInfo: (req, res) => {
     const views = req.params.user_id;
