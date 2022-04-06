@@ -127,10 +127,10 @@ http.createServer(app).listen(8001, () => {
   console.log("Express Server Start");
 });
 
-// app.use(
-//   "/images",
-//   express.static('/home/hosting_users/bcd1031/apps/bcd1031_swc/images')
-// );
+app.use(
+  // "/images",
+  express.static('/home/hosting_users/bcd1031/apps/bcd1031_swc/images')
+);
 
 app.get('/', (req, res) => {
   res.render('index')
