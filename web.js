@@ -104,22 +104,12 @@ app.engine("html", ejs.renderFile);
 sequelize.sync();
 app.use('/', router);
 
-var fs = require('fs')
-fs.readFile('/home/hosting_users/bcd1031/apps/bcd1031_swc/images', 'UTF-8', (err, data) => {
-    if (err) {
-        if (err.code == "ENOENT") {
-            console.log("Error: ENOENT: no such file or directory, open " + err.path);
-        }
-        else {
-            console.log(err);
-        }
-    }
-    else {
-        console.log(data);
-    }
-    
-});
-
+fs.readdir(
+  "/home/hosting_users/bcd1031/apps/bcd1031_swc/images",
+  function (error, filelist) {
+    console.log(filelist);
+  }
+)
 http.createServer(app).listen(8001, () => {
   path.resolve('/images')
 //  const qwe = mkdir('/home/hosting_users/bcd1031/apps/bcd1031_swc/images')
