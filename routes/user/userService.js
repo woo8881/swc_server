@@ -71,7 +71,7 @@ module.exports = {
         })
         .catch((err) => {
           resolve("error");
-          console.log(err.fields);
+          console.log(err.fields +"중복입니다!");
         });
     });
   },
