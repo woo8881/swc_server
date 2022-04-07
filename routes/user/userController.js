@@ -41,7 +41,7 @@ module.exports = {
         res.send(obj);
       }
         else if(result == "error"){
-          obj["err"] = "중복";
+          obj["err"] = "중복이거나 필수로 들어가야하는 값이 없음";
           res.send(obj);
         }
        else{
