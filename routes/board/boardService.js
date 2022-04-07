@@ -29,6 +29,8 @@ module.exports = {
           user_id: body.user_id,
         }).then((result) => {
           result !== null ? resolve(result) : resolve(false);
+        }).catch((err) => {
+          console.log(err);
         });
       }else{Board.create({
         board_title: body.board_title,
@@ -42,6 +44,8 @@ module.exports = {
         user_id: body.user_id,
       }).then((result) => {
         result !== null ? resolve(result) : resolve(false);
+      }).catch((err) => {
+        console.log(err);
       });
     
     }
@@ -70,6 +74,8 @@ module.exports = {
         },
       }).then((result) => {
         result !== null ? resolve(result) : resolve(false);
+      }).catch((err) => {
+        console.log(err);
       });
     });
   },
@@ -107,8 +113,10 @@ module.exports = {
             obj !== null ? resolve(obj) : resolve(false);
           })
           .catch((err) => {
-            resolve(false);
+            console.log(err);
           });
+      }).catch((err) => {
+        console.log(err);
       });
     });
   },
@@ -131,6 +139,8 @@ module.exports = {
         ) .then((result) => {
           result == 1 ? resolve(true) : resolve(false);
           console.log(body);
+        }).catch((err) => {
+          console.log(err);
         });
       }else{
         Board.update(
@@ -150,6 +160,8 @@ module.exports = {
         ) .then((result) => {
           result == 1 ? resolve(true) : resolve(false);
           console.log(body);
+        }).catch((err) => {
+          console.log(err);
         });
       }
     
@@ -169,8 +181,7 @@ module.exports = {
           // console.log(body);
         })
         .catch((err) => {
-          resolve(false);
-          throw err;
+          console.log(err);
         });
     });
   },
@@ -197,7 +208,7 @@ module.exports = {
           result !== null ? resolve(result) : resolve(false);
         })
         .catch((err) => {
-          resolve(false);
+          console.log(err);
         });
     });
   },

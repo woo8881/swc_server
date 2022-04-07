@@ -36,11 +36,15 @@ module.exports = {
             }
           ).then((secondResult) => {
             secondResult !== null ? resolve(result) : resolve(false);
+          }).catch((err) => {
+            console.log(err);
           });
         } else {
           console.log(result);
           result !== null ? resolve(result) : resolve(false);
         }
+      }).catch((err) => {
+        console.log(err);
       });
     });
   },
@@ -65,8 +69,7 @@ module.exports = {
           console.log(body);
         })
         .catch((err) => {
-          resolve(false);
-          throw err;
+          console.log(err);
         });
     });
   },
@@ -83,8 +86,7 @@ module.exports = {
           result === 1 ? resolve(true) : resolve(false);
         })
         .catch((err) => {
-          resolve(false);
-          throw err;
+          console.log(err);
         });
     });
   },

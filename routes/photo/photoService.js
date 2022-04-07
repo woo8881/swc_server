@@ -21,6 +21,8 @@ module.exports = {
         board_id:body.board_id
       }).then((result) => {
        result!==null ? resolve(result) : resolve(false);
+    }).catch((err) => {
+      console.log(err);
     });
   })
 }

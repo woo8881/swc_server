@@ -23,6 +23,8 @@ module.exports = {
         user_id : body.user_id
       }).then((result) => {
         result !== null ? resolve(result) : resolve(false);
+      }).catch((err) => {
+        console.log(err);
       });
     });
   },
@@ -41,6 +43,8 @@ module.exports = {
         }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
       ).then((result) => {
         result == 1 ? resolve(result) : resolve(false);
+      }).catch((err) => {
+        console.log(err);
       });
     });
   },
@@ -51,6 +55,8 @@ module.exports = {
       }).then((result) => {
         console.log(result);
         result == 1 ? resolve(true) : resolve(false);
+      }).catch((err) => {
+        console.log(err);
       });
     });
   },
