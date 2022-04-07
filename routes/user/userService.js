@@ -93,7 +93,7 @@ module.exports = {
           result == 1 ? resolve(true) : resolve(false);
         })
         .catch((err) => {
-          throw err;
+          console.log(err);
         });
     });
   },
