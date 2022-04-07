@@ -11,6 +11,7 @@ module.exports = {
         const imgData = req.file
         // console.log(req.file)
         boardService.makeBoard(body, imgData).then(result=>{
+            console.log(result)
             let obj={}
             if(result==false){
                 obj["suc"]=false;

@@ -73,7 +73,7 @@ module.exports = {
       let obj = {};
       if (result == false) {
         obj["suc"] = false;
-        obj["err"] = "아이디가 틀리거나 수정된 정보가 변경하기 전 이랑 같음";
+        obj["err"] = "아이디가 틀리거나 수정된 정보가 변경하기 전 이랑 같거나 변경할 수 없는 정보임";
         res.send(obj);
       } else {
         obj["suc"] = true;

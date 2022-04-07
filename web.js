@@ -103,12 +103,16 @@ app.engine("html", ejs.renderFile);
 sequelize.sync();
 app.use('/', router);
 
-fs.readdir(
-  "/home/hosting_users/bcd1031/apps/bcd1031_swc/images",
-  function (error, filelist) {
-    console.log(filelist);
-  }
-)
+//파일 있는지 보는거
+
+// fs.readdir(
+//   "/home/hosting_users/bcd1031/apps/bcd1031_swc/images",
+//   function (error, filelist) {
+//     console.log(filelist);
+//   }
+// )
+
+
 http.createServer(app).listen(8001, () => {
   console.log("Express Server Start");
 });
