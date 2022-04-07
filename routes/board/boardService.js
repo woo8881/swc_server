@@ -1,5 +1,6 @@
 const sequelize = require("../../models").sequelize;
 var moment = require("moment");
+const { errorMonitor } = require("winston-daily-rotate-file");
 const {
   Board,
   User,
@@ -29,6 +30,8 @@ module.exports = {
           user_id: body.user_id,
         }).then((result) => {
           result !== null ? resolve(result) : resolve(false);
+        }).catch((err) => {
+          console.log(err)
         });
       }else{Board.create({
         board_title: body.board_title,
@@ -42,6 +45,8 @@ module.exports = {
         user_id: body.user_id,
       }).then((result) => {
         result !== null ? resolve(result) : resolve(false);
+      }).catch((err) => {
+        console.log(err)
       });
     
     }
@@ -70,6 +75,8 @@ module.exports = {
         },
       }).then((result) => {
         result !== null ? resolve(result) : resolve(false);
+      }).catch((err) => {
+        console.log(err)
       });
     });
   },
@@ -107,8 +114,10 @@ module.exports = {
             obj !== null ? resolve(obj) : resolve(false);
           })
           .catch((err) => {
-            resolve(false);
+            console.log(err)
           });
+      }).catch((err) => {
+        console.log(err)
       });
     });
   },
@@ -131,6 +140,8 @@ module.exports = {
         ) .then((result) => {
           result == 1 ? resolve(true) : resolve(false);
           console.log(body);
+        }).catch((err) => {
+          console.log(err)
         });
       }else{
         Board.update(
@@ -150,6 +161,8 @@ module.exports = {
         ) .then((result) => {
           result == 1 ? resolve(true) : resolve(false);
           console.log(body);
+        }).catch((err) => {
+          console.log(err)
         });
       }
     

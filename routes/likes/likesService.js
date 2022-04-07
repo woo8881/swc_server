@@ -29,11 +29,15 @@ sequelize.query("SET NAMES UTF8");
               },
             }).then((desresult) =>{
               desresult[1] !== 1 ? resolve("좋아요 취소") : resolve(false);
-            })
+            }).catch((err) => {
+              console.log(err)
+            });
           }else{result[1] ==1 ? resolve(result) : resolve(false);}
           
           
           
+        }).catch((err) => {
+          console.log(err)
         });
       });
     },

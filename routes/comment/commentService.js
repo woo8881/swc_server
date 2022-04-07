@@ -36,11 +36,15 @@ module.exports = {
             }
           ).then((secondResult) => {
             secondResult !== null ? resolve(result) : resolve(false);
+          }).catch((err) => {
+            console.log(err)
           });
         } else {
           console.log(result);
           result !== null ? resolve(result) : resolve(false);
         }
+      }).catch((err) => {
+        console.log(err)
       });
     });
   },

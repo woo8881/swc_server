@@ -28,11 +28,15 @@ module.exports = {
           }).then((desresult) => {
             // console.log(desresult)
             desresult[1] !== 1 ? resolve(desresult) : resolve(false);
+          }).catch((err) => {
+            console.log(err)
           });
         } else {
           // console.log(result)
           result[1] == 1 ? resolve(result) : resolve(false);
         }
+      }).catch((err) => {
+        console.log(err)
       });
     });
   },

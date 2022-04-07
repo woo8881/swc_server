@@ -122,7 +122,7 @@ http.createServer(app).listen(8001, () => {
 
 app.use(
   "/images",
-  express.static('home/hosting_users/bcd1031/apps/bcd1031_swc/images')
+  express.static('/home/hosting_users/bcd1031/apps/bcd1031_swc/images')
 );
 
 app.get('/', (req, res) => {

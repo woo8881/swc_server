@@ -71,7 +71,7 @@ module.exports = {
           console.log(result);
         })
         .catch((err) => {
-          throw err;
+          console.log(err)
         });
     });
   },
@@ -92,7 +92,7 @@ module.exports = {
           result == 1 ? resolve(true) : resolve(false);
         })
         .catch((err) => {
-          throw err;
+          console.log(err)
         });
     });
   },
@@ -113,7 +113,9 @@ module.exports = {
           }
         ) .then((result) => {
           result == 1 ? resolve(result) : resolve(false);
-        })
+        }).catch((err) => {
+          console.log(err)
+        });
       }else{
          User.update(
           {
@@ -130,7 +132,9 @@ module.exports = {
           }
         ) .then((result) => {
           result == 1 ? resolve(result) : resolve(false);
-        })
+        }).catch((err) => {
+          console.log(err)
+        });
       }
     });
   },
@@ -201,6 +205,8 @@ module.exports = {
       }).then((result) => {
         console.log(result);
         result !== null ? resolve(result) : resolve(false);
+      }).catch((err) => {
+        console.log(err)
       });
     });
   },
