@@ -36,8 +36,7 @@ module.exports = {
         })
 
         .catch((err) => {
-          resolve(result);
-          throw err;
+          resolve(err);
         });
     });
   },
@@ -71,7 +70,8 @@ module.exports = {
           console.log(result);
         })
         .catch((err) => {
-          throw err;
+          resolve(err);
+          console.log(err);
         });
     });
   },

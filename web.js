@@ -96,7 +96,6 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json()); 
 
 
-// makeFolder('images')
 app.use(methodOverride());
 app.use(cors());
 app.engine("html", ejs.renderFile);
@@ -111,19 +110,6 @@ fs.readdir(
   }
 )
 http.createServer(app).listen(8001, () => {
-  path.resolve('/images')
-//  const qwe = mkdir('/home/hosting_users/bcd1031/apps/bcd1031_swc/images')
-//  console.log(qwe)
-  // fs.mkdirSync("/hw");
-    // if(!fs.existsSync("/home/hosting_users/bcd1031/apps/bcd1031_swc/images")){
-    //   fs.mkdirSync("/home/hosting_users/bcd1031/apps/bcd1031_swc/images");
-    // }
-  // fs.mkdirSync("/home/hosting_users/bcd1031/apps/bcd1031_swc/images");
-//  let fas = makeFolder("/home/hosting_users/bcd1031/apps/bcd1031_swc/images")
-//   console.log(fas)
-  // console.log(path.resolve(__dirname, '/home/hosting_users/bcd1031/apps/bcd1031_swc/images'));
-  // console.log(makeFolder)
-  // console.log(__dirname)
   console.log("Express Server Start");
 });
 
