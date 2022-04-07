@@ -17,8 +17,11 @@ require("moment-timezone");
 module.exports = {
   makeBoard: (body, imgData) => {
     return new Promise((resolve) => {
+     
       if(imgData == null){
         Board.create({
+          include:{model:User},
+
           board_title: body.board_title,
           board_content: body.board_content,
           board_date: moment().format("YYYY-MM-DD"),
@@ -28,6 +31,7 @@ module.exports = {
           board_detail: body.board_detail,
           user_id: body.user_id,
         }).then((result) => {
+          console.log(result)
           result !== null ? resolve(result) : resolve(false);
         }).catch((err) => {
           console.log(err);
