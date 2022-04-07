@@ -70,8 +70,8 @@ module.exports = {
           console.log(result);
         })
         .catch((err) => {
-          resolve(err);
-          console.log(err);
+          resolve("error");
+          console.log(err.fields);
         });
     });
   },

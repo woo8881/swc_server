@@ -33,14 +33,16 @@ module.exports = {
     const body = req.body;
     const hash = hashing.enc(body.user_password, salt);
     userService.signUp(body, hash).then((result) => {
+      // console.log(result);
       let obj = {};
       if (result == false) {
         obj["suc"] = false;
         obj["err"] = "아이디 or 이메일 or 번호 or 닉네임 중복";
         res.send(obj);
       }
-        else if(result == err){
-          obj["err"] = result;
+        else if(result == "error"){
+          obj["err"] = "중복";
+          res.send(obj);
         }
        else{
         obj["suc"] = true;
