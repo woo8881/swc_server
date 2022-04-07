@@ -38,7 +38,11 @@ module.exports = {
         obj["suc"] = false;
         obj["err"] = "아이디 or 이메일 or 번호 or 닉네임 중복";
         res.send(obj);
-      } else {
+      }
+        else if(result == true){
+          obj["err"] = result;
+        }
+       else{
         obj["suc"] = true;
         res.send(obj);
       }
