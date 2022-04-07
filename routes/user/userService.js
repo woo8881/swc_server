@@ -72,6 +72,7 @@ module.exports = {
         .catch((err) => {
           resolve("error");
           console.log(err.fields);
+          console.log(err);
         });
     });
   },
