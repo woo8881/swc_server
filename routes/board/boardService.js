@@ -20,7 +20,7 @@ module.exports = {
      
       if(imgData == null){
         Board.create({
-          include:{model:User},
+          // include:{model:User},
 
           board_title: body.board_title,
           board_content: body.board_content,
@@ -86,7 +86,7 @@ module.exports = {
   inquiryBulletin: (boardContent) => {
     return new Promise((resolve) => {
       Board.findOne({
-        include: [{ model: Likes }, { model: Comment }, { model: Team }],
+        include: [{ model: Likes }, { model: Comment }, { model: Team },{mode:User}],
 
         where: {
           board_id: boardContent,
