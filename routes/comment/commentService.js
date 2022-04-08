@@ -37,22 +37,14 @@ module.exports = {
           ).then((secondResult) => {
             secondResult !== null ? resolve(result) : resolve(false);
           }).catch((err) => {
-<<<<<<< HEAD
             console.log(err)
-=======
-            console.log(err);
->>>>>>> 989b8e49decba866a86185f924df8b4f01226bbc
           });
         } else {
           console.log(result);
           result !== null ? resolve(result) : resolve(false);
         }
       }).catch((err) => {
-<<<<<<< HEAD
         console.log(err)
-=======
-        console.log(err);
->>>>>>> 989b8e49decba866a86185f924df8b4f01226bbc
       });
     });
   },

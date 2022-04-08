@@ -131,8 +131,6 @@ module.exports = {
             },
           }
         ) .then((result) => {
-          // console.log(result)
-          // delete result.dataValues.user_image;
           result == 1 ? resolve(result) : resolve(false);
         }).catch((err) => {
           console.log(err)

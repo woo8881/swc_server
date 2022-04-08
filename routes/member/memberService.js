@@ -29,22 +29,14 @@ module.exports = {
             // console.log(desresult)
             desresult[1] !== 1 ? resolve(desresult) : resolve(false);
           }).catch((err) => {
-<<<<<<< HEAD
             console.log(err)
-=======
-            console.log(err);
->>>>>>> 989b8e49decba866a86185f924df8b4f01226bbc
           });
         } else {
           // console.log(result)
           result[1] == 1 ? resolve(result) : resolve(false);
         }
       }).catch((err) => {
-<<<<<<< HEAD
         console.log(err)
-=======
-        console.log(err);
->>>>>>> 989b8e49decba866a86185f924df8b4f01226bbc
       });
     });
   },

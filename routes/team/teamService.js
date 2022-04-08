@@ -24,11 +24,7 @@ module.exports = {
       }).then((result) => {
         result !== null ? resolve(result) : resolve(false);
       }).catch((err) => {
-<<<<<<< HEAD
         console.log(err)
-=======
-        console.log(err);
->>>>>>> 989b8e49decba866a86185f924df8b4f01226bbc
       });
     });
   },
@@ -48,11 +44,7 @@ module.exports = {
       ).then((result) => {
         result == 1 ? resolve(result) : resolve(false);
       }).catch((err) => {
-<<<<<<< HEAD
         console.log(err)
-=======
-        console.log(err);
->>>>>>> 989b8e49decba866a86185f924df8b4f01226bbc
       });
     });
   },
@@ -64,11 +56,7 @@ module.exports = {
         console.log(result);
         result == 1 ? resolve(true) : resolve(false);
       }).catch((err) => {
-<<<<<<< HEAD
         console.log(err)
-=======
-        console.log(err);
->>>>>>> 989b8e49decba866a86185f924df8b4f01226bbc
       });
     });
   },

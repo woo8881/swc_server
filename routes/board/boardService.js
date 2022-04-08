@@ -35,11 +35,7 @@ module.exports = {
           console.log(result)
           result !== null ? resolve(result) : resolve(false);
         }).catch((err) => {
-<<<<<<< HEAD
           console.log(err)
-=======
-          console.log(err);
->>>>>>> 989b8e49decba866a86185f924df8b4f01226bbc
         });
       }else{Board.create({
         board_title: body.board_title,
@@ -54,11 +50,7 @@ module.exports = {
       }).then((result) => {
         result !== null ? resolve(result) : resolve(false);
       }).catch((err) => {
-<<<<<<< HEAD
         console.log(err)
-=======
-        console.log(err);
->>>>>>> 989b8e49decba866a86185f924df8b4f01226bbc
       });
     
     }
@@ -88,11 +80,7 @@ module.exports = {
       }).then((result) => {
         result !== null ? resolve(result) : resolve(false);
       }).catch((err) => {
-<<<<<<< HEAD
         console.log(err)
-=======
-        console.log(err);
->>>>>>> 989b8e49decba866a86185f924df8b4f01226bbc
       });
     });
   },
@@ -130,17 +118,10 @@ module.exports = {
             obj !== null ? resolve(obj) : resolve(false);
           })
           .catch((err) => {
-<<<<<<< HEAD
             console.log(err)
           });
       }).catch((err) => {
         console.log(err)
-=======
-            console.log(err);
-          });
-      }).catch((err) => {
-        console.log(err);
->>>>>>> 989b8e49decba866a86185f924df8b4f01226bbc
       });
     });
   },
@@ -164,11 +145,7 @@ module.exports = {
           result == 1 ? resolve(true) : resolve(false);
           console.log(body);
         }).catch((err) => {
-<<<<<<< HEAD
           console.log(err)
-=======
-          console.log(err);
->>>>>>> 989b8e49decba866a86185f924df8b4f01226bbc
         });
       }else{
         Board.update(
@@ -189,11 +166,7 @@ module.exports = {
           result == 1 ? resolve(true) : resolve(false);
           console.log(body);
         }).catch((err) => {
-<<<<<<< HEAD
           console.log(err)
-=======
-          console.log(err);
->>>>>>> 989b8e49decba866a86185f924df8b4f01226bbc
         });
       }
     
