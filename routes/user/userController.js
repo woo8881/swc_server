@@ -62,8 +62,10 @@ module.exports = {
   transMyInfo: (req, res) => {
     const body = req.body;
     const imgData = req.file
+
     console.log(req.file)
     userService.transMyInfo(body, imgData).then((result) => {
+      console.log(result)
       let obj = {};
       if (result == false) {
         obj["suc"] = false;

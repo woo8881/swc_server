@@ -104,7 +104,14 @@ app.engine("html", ejs.renderFile);
 sequelize.sync();
 app.use('/', router);
 
+fs.readdir(
+  "/home/hosting_users/bcd1031/apps/bcd1031_swc/images",
+  function (error, filelist) {
+    console.log(filelist);
+  }
+)
 http.createServer(app).listen(8001, () => {
+  path.resolve('/images')
 //  const qwe = mkdir('/home/hosting_users/bcd1031/apps/bcd1031_swc/images')
 //  console.log(qwe)
   // fs.mkdirSync("/hw");
@@ -121,7 +128,7 @@ http.createServer(app).listen(8001, () => {
 });
 
 app.use(
-  "/images",
+  "/home/hosting_users/bcd1031/apps/bcd1031_swc/images",
   express.static('/home/hosting_users/bcd1031/apps/bcd1031_swc/images')
 );
 
