@@ -18,8 +18,11 @@ require("moment-timezone");
 module.exports = {
   makeBoard: (body, imgData) => {
     return new Promise((resolve) => {
+     
       if(imgData == null){
         Board.create({
+          // include:{model:User},
+
           board_title: body.board_title,
           board_content: body.board_content,
           board_date: moment().format("YYYY-MM-DD"),
@@ -29,9 +32,14 @@ module.exports = {
           board_detail: body.board_detail,
           user_id: body.user_id,
         }).then((result) => {
+          console.log(result)
           result !== null ? resolve(result) : resolve(false);
         }).catch((err) => {
+<<<<<<< HEAD
           console.log(err)
+=======
+          console.log(err);
+>>>>>>> 989b8e49decba866a86185f924df8b4f01226bbc
         });
       }else{Board.create({
         board_title: body.board_title,
@@ -46,7 +54,11 @@ module.exports = {
       }).then((result) => {
         result !== null ? resolve(result) : resolve(false);
       }).catch((err) => {
+<<<<<<< HEAD
         console.log(err)
+=======
+        console.log(err);
+>>>>>>> 989b8e49decba866a86185f924df8b4f01226bbc
       });
     
     }
@@ -76,14 +88,18 @@ module.exports = {
       }).then((result) => {
         result !== null ? resolve(result) : resolve(false);
       }).catch((err) => {
+<<<<<<< HEAD
         console.log(err)
+=======
+        console.log(err);
+>>>>>>> 989b8e49decba866a86185f924df8b4f01226bbc
       });
     });
   },
   inquiryBulletin: (boardContent) => {
     return new Promise((resolve) => {
       Board.findOne({
-        include: [{ model: Likes }, { model: Comment }, { model: Team }],
+        include: [{ model: Likes }, { model: Comment }, { model: Team },{mode:User}],
 
         where: {
           board_id: boardContent,
@@ -114,10 +130,17 @@ module.exports = {
             obj !== null ? resolve(obj) : resolve(false);
           })
           .catch((err) => {
+<<<<<<< HEAD
             console.log(err)
           });
       }).catch((err) => {
         console.log(err)
+=======
+            console.log(err);
+          });
+      }).catch((err) => {
+        console.log(err);
+>>>>>>> 989b8e49decba866a86185f924df8b4f01226bbc
       });
     });
   },
@@ -141,7 +164,11 @@ module.exports = {
           result == 1 ? resolve(true) : resolve(false);
           console.log(body);
         }).catch((err) => {
+<<<<<<< HEAD
           console.log(err)
+=======
+          console.log(err);
+>>>>>>> 989b8e49decba866a86185f924df8b4f01226bbc
         });
       }else{
         Board.update(
@@ -162,7 +189,11 @@ module.exports = {
           result == 1 ? resolve(true) : resolve(false);
           console.log(body);
         }).catch((err) => {
+<<<<<<< HEAD
           console.log(err)
+=======
+          console.log(err);
+>>>>>>> 989b8e49decba866a86185f924df8b4f01226bbc
         });
       }
     
@@ -182,8 +213,7 @@ module.exports = {
           // console.log(body);
         })
         .catch((err) => {
-          resolve(false);
-          throw err;
+          console.log(err);
         });
     });
   },
@@ -210,7 +240,7 @@ module.exports = {
           result !== null ? resolve(result) : resolve(false);
         })
         .catch((err) => {
-          resolve(false);
+          console.log(err);
         });
     });
   },

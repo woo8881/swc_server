@@ -33,12 +33,18 @@ module.exports = {
     const body = req.body;
     const hash = hashing.enc(body.user_password, salt);
     userService.signUp(body, hash).then((result) => {
+      // console.log(result);
       let obj = {};
       if (result == false) {
         obj["suc"] = false;
         obj["err"] = "아이디 or 이메일 or 번호 or 닉네임 중복";
         res.send(obj);
-      } else {
+      }
+        else if(result == "error"){
+          obj["err"] = "중복이거나 필수로 들어가야하는 값이 없음";
+          res.send(obj);
+        }
+       else{
         obj["suc"] = true;
         res.send(obj);
       }
@@ -69,7 +75,7 @@ module.exports = {
       let obj = {};
       if (result == false) {
         obj["suc"] = false;
-        obj["err"] = "아이디가 틀리거나 수정된 정보가 변경하기 전 이랑 같음";
+        obj["err"] = "아이디가 틀리거나 수정된 정보가 변경하기 전 이랑 같거나 변경할 수 없는 정보임";
         res.send(obj);
       } else {
         obj["suc"] = true;

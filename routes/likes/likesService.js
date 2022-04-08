@@ -30,14 +30,22 @@ sequelize.query("SET NAMES UTF8");
             }).then((desresult) =>{
               desresult[1] !== 1 ? resolve("좋아요 취소") : resolve(false);
             }).catch((err) => {
+<<<<<<< HEAD
               console.log(err)
+=======
+              console.log(err);
+>>>>>>> 989b8e49decba866a86185f924df8b4f01226bbc
             });
           }else{result[1] ==1 ? resolve(result) : resolve(false);}
           
           
           
         }).catch((err) => {
+<<<<<<< HEAD
           console.log(err)
+=======
+          console.log(err);
+>>>>>>> 989b8e49decba866a86185f924df8b4f01226bbc
         });
       });
     },

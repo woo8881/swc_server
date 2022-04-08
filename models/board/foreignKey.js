@@ -1,6 +1,6 @@
 module.exports = db => {
     db.Board.belongsTo(db.User, {
-        foreignKey: 'user_id'
+        foreignKey: "user_id"
     });
 
 
