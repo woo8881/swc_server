@@ -122,7 +122,7 @@ module.exports = {
             user_tel: body.user_tel,
             user_email: body.user_email,
             user_nickname: body.user_nickname,
-            user_image: "http://swc.cafe24app.com/".imgData.path,
+            user_image: imgData.path,
           },
   
           {
