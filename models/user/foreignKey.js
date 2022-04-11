@@ -1,6 +1,6 @@
 module.exports = (db) => {
     db.User.hasMany(db.Board, {
-      foreignKey: ["user_id",{allowNull:false}],
+      foreignKey: {name: "user_id", allowNull:false},
           sourceKey: "user_id",
       allowNull: false,
       constraints: true,
