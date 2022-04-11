@@ -3,6 +3,8 @@ module.exports = (db) => {
       foreignKey: "user_id",
       sourceKey: "user_id",
       allowNull: false,
+      constraints: true,
+      onDelete:'cascade'
     });
     db.User.hasMany(db.Comment, {
         foreignKey: "user_id",
