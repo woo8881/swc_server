@@ -1,6 +1,7 @@
 module.exports = (db) => {
   db.Board.belongsTo(db.User, {
     foreignKey: "user_id",
+    allowNull: false
   });
 
   db.Board.hasMany(db.Comment, {
