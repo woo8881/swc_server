@@ -1,7 +1,8 @@
 module.exports = (db) => {
     db.User.hasMany(db.Board, {
-      foreignKey: {allowNull:false},
-      sourceKey: "user_id",
+      foreignKey: ["user_id",{allowNull:false}],
+          sourceKey: "user_id",
+      allowNull: false,
       constraints: true,
       onDelete:'cascade'
     });
