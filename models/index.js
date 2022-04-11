@@ -45,12 +45,12 @@ db.Team = require('./team')(sequelize, Sequelize);
 db.Member = require('./member')(sequelize, Sequelize);
 db.Photo = require('./photo')(sequelize, Sequelize);
 // 관계형 지정
-// require('./user/foreignKey')(db);
-// require('./board/foreignKey')(db);
-// require('./comment/foreignKey')(db);
-// require('./likes/foreignKey')(db);
-// require('./team/foreignKey')(db);
-// require('./member/foreignKey')(db);
-// require('./photo/foreignKey')(db);
+require('./user/foreignKey')(db);
+require('./board/foreignKey')(db);
+require('./comment/foreignKey')(db);
+require('./likes/foreignKey')(db);
+require('./team/foreignKey')(db);
+require('./member/foreignKey')(db);
+require('./photo/foreignKey')(db);
 
 module.exports = db;
