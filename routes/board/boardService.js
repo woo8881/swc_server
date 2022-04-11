@@ -88,7 +88,7 @@ module.exports = {
   inquiryBulletin: (boardContent) => {
     return new Promise((resolve) => {
       Board.findOne({
-        include: [{ model: Likes }, { model: Comment }, { model: Team },{mode:User}],
+        include: [{ model: Likes }, { model: Comment }, { model: Team },{model:User}],
 
         where: {
           board_id: boardContent,
@@ -101,6 +101,7 @@ module.exports = {
 
         raw: false,
       }).then((result) => {
+       
         Board.increment(
           {
             board_hits: 1,
@@ -112,6 +113,7 @@ module.exports = {
           }
         )
           .then(() => {
+            console.log(result)
             let obj = {};
             obj["likes_count"] = result.likes.length;
             obj["result"] = result.dataValues;
@@ -122,6 +124,7 @@ module.exports = {
             console.log(err)
           });
       }).catch((err) => {
+
         console.log(err)
       });
     });
