@@ -1,8 +1,12 @@
+const { DataTypes } = require("Sequelize");
+//asd
 module.exports = (db) => {
     db.User.hasMany(db.Board, {
-      foreignKey: {name: "user_id", allowNull:false,
+      foreignKey: {name: "user_id", 
+                   allowNull:false,
                   constraints: true,
-                  onDelete:'cascade'
+                  onDelete:'cascade',
+                  type: DataTypes.UUID
     },
           sourceKey: "user_id",
 
