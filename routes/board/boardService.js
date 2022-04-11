@@ -31,6 +31,7 @@ module.exports = {
           board_state: "생성",
           board_detail: body.board_detail,
           user_id: body.user_id,
+          board_img:"null"
         }).then((result) => {
           console.log(result)
           result !== null ? resolve(result) : resolve(false);
