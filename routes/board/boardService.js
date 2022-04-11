@@ -163,8 +163,9 @@ module.exports = {
             },
           }
         ) .then((result) => {
+          // console.log(result)
           result == 1 ? resolve(true) : resolve(false);
-          console.log(body);
+          // console.log(body);
         }).catch((err) => {
           console.log(err)
         });
