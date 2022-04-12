@@ -32,7 +32,7 @@ router.post('/mail', (req, res, next) => {
   
   //발송 할 ejs 준비
   let emailTemplate;
-  ejs.renderFile('./views/index.ejs',  //ejs파일 위치 
+  ejs.renderFile('/home/hosting_users/bcd1031/apps/bcd1031_swc/views/index.ejs',  //ejs파일 위치 
                  { email: userEmail, code: code}, (err, data) => { //ejs mapping
             if (err) { console.log(err) }
             emailTemplate = data;
