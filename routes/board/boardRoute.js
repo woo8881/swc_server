@@ -12,7 +12,7 @@ router.get('/inquiryBoard/:board_id/:page', boardController.inquiryBoard);
 //게시글 조회
 router.get('/inquiryBulletin/:board_id', boardController.inquiryBulletin);
 //게시판 수정
-router.post('/remakeBoard',authUtil,boardController.remakeBoard);
+router.post('/remakeBoard',upload,authUtil,boardController.remakeBoard);
 //게시판 삭제
 router.get('/deleteBoard/:board_id', authUtil,boardController.deleteBoard);
 //검색 기능
