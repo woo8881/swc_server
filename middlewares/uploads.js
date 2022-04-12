@@ -5,7 +5,7 @@ var fs = require('fs');
 // const upload = multer({ storage: storage })
 // 이미지 받았을 때 필터링
 const imageFilter = (req, file, cb) => {
-  if (!file.originalname.match(/\.(jpg|jpeg|png|gif|PNG)$/)) {
+  if (!file.originalname.match(/\.(jpg|jpeg|png|gif|PNG|JPG|JPEG|GIF)$/)) {
     return cb(new Error("Only image files are allowed!"));
   }
   cb(null, true);

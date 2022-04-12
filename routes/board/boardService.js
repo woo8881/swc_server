@@ -142,10 +142,12 @@ module.exports = {
           },
           {
             where: {
-              board_id: body.board_id,
-            },
+              board_id: body.board_id
+            }
           }
         ) .then((result) => {
+          console.log(result);
+          console.log("result");
           result == 1 ? resolve(true) : resolve(false);
           console.log(body);
         }).catch((err) => {
@@ -163,11 +165,12 @@ module.exports = {
           },
           {
             where: {
-              board_id: body.board_id,
-            },
+              board_id: body.board_id
+            }
           }
         ) .then((result) => {
-          // console.log(result)
+          console.log(result);
+          console.log("result");
           result == 1 ? resolve(true) : resolve(false);
           // console.log(body);
         }).catch((err) => {

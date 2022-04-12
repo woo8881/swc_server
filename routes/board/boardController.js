@@ -30,6 +30,8 @@ module.exports = {
         const imgData = req.file
         // console.log(req.body)
         boardService.remakeBoard(body, imgData).then((result)=>{
+          console.log("finalresult");
+          console.log("result");
             let obj={}
             if(result==false){
                 obj["suc"]=false;
