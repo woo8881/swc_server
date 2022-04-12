@@ -13,83 +13,62 @@ var path = require('path');
 var url = require('url');
 var fs = require('fs');
 
-// const makeFolder=(dir)=>{
-//   if(!fs.existsSync(dir)){
-//     fs.mkdirSync(dir);
-//     console.log(dir)
-//   }
-// }
 
 
-
-// const logger = require('./config/logger'); 
-// const morgan = require("morgan"); 
-
-// app.use(((req, res, next) => {
-//     logger.info('로그 출력 test용 middleware');
-
-//     logger.error('error 메시지');
-//     logger.warn('warn 메시지');
-//     logger.info('info 메시지');
-//     logger.http('http 메시지');
-//     logger.debug('debug 메시지');
-
-//     next();
-// }));
+const nodemailer = require("nodemailer");
+const aws = require("@aws-sdk/client-ses");
 
 
+process.env.AWS_ACCESS_KEY_ID = 'EXAMPLEIDKEY'; // aws access key
+process.env.AWS_SECRET_ACCESS_KEY = 'EXAMPLEACCESSKEYPASSWORD' // aws secret access key
 
-// /**********로거 출력용 logger, morgan**********/
-// global.logger || (global.logger = require('./config/logger'));  // → 전역에서 사용
-// const morganMiddleware = require('./config/morganMiddleware');
-// app.use(morganMiddleware);  // 콘솔창에 통신결과 나오게 해주는 것
-// /**********로그인 세션 관리**********/
-// // const session = require('express-session');
-// // const passport = require('passport');
-// // const passportConfig = require('passport');
-// /**********라우트 목록**********/
-// // const apiRoute = require('./routes/index.js');
-// // 생략... 대충 api router설정해주는 부분임!
+router.post('/mail', (req, res, next) => {
+  //Request body에 실어져 있는 데이터 가져오기
+  const userEmail = req.params.userEmail;
+  
+  //해시코드 생성
+  const code = crypto.randomBytes(3).toString('hex');
+	//DB에 해당 유저 튜플에 코드 값 UPDATE 코드 .. 생략
+  
+  //발송 할 ejs 준비
+  let emailTemplate;
+  ejs.renderFile('./registerVerify.ejs',  //ejs파일 위치 
+                 { email: userEmail, code: code}, (err, data) => { //ejs mapping
+            if (err) { console.log(err) }
+            emailTemplate = data;
+      });
+  //ses ready
+  const ses = new aws.SES({
+        apiVersion: "2010-12-01",
+        region: "us-east-1", //AWS SES Region 수정
+  });
+    // create Nodemailer SES transporter 
+    // 이 때 process.env에 AWS_ACCESS_KEY_ID와 AWS_SECRET_ACCESS_KEY를 확인한다.
+  let transporter = nodemailer.createTransport({ 
+        SES: { ses, aws },
+  });
+    // send mail
+  transporter.sendMail(
+      {
+          from: "닉네임<welcome@example.com>",
+          to: target,
+          subject: "[example] 회원가입 인증메일 입니다.",
+          html: emailTemplate,
+      },
+      (err, info) => {
+          if (err) {
+              console.log(err);
+              res.status(500).json(err);
+          }
+      }
+  );
+  res.status(200).json({
+    code: 200,
+	message: '발송 성공'
+  });
+});
 
-// // 반드시 session이후에 passport.initialize()와 passport.session()이 위치해야 합니다.
-// // app.use(session({
-// //     secret: 'hafProject',   //세션 암호화
-// //     resave: false,  //세션을 항상 저장할지 여부를 정하는 값. (false 권장)
-// //     saveUninitialized: true ,   //초기화되지 않은채 스토어에 저장되는 세션
-// //     // cookie: { secure: false, maxAge: 60000  },
-// // }));
 
-// app.use('/uploads', express.static('uploads')); //uploads 폴더로 이동
-
-// // app.use(passport.initialize());
-// // app.use(passport.session());
-// // passportConfig(passport);
-
-// app.use(express.json()); // json으로 받아들인 정보를 분석함
-// // 아래 옵션이 false면 노드의 querystring 모듈을 사용하여 쿼리스트링을 해석하고, true면 qs 모듈을 사용하여 쿼리스트링을 해석한다
-// app.use(express.urlencoded({ extended: true }));
-
-// 생략... 대충 api router설정해주는 부분임!
-
-// app.listen(port, () => {
-//     logger.debug(`SERVER ON ... Express is running on http:localhost:${port}`);
-// });
-
-
-
-// const morgan = require('morgan');
- 
-// app.use(morgan('dev'));
-
-
-function mkdir( dirPath ) {
-  const isExists = fs.existsSync( dirPath );
-  if( !isExists ) {
-      fs.mkdirSync( dirPath, { recursive: true } );
-  }
-}
-
-// winston.info(message)
 
 
 app.use(express.urlencoded({extended: false}));
