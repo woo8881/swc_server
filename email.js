@@ -14,7 +14,7 @@ const {COLLECTION_NAME, QUERY} = require('../const/consts');
 const smtpTransport = nodemailer.createTransport({
     service: "Gmail",
     auth: {
-        user: "사용자 이메일주소(구글)",
+        user: "woo888123@gmail.com",
         pass: process.env.gmail
     },
     tls: {
