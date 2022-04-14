@@ -1,7 +1,9 @@
 const nodemailer = require('nodemailer');
 const senderInfo = require('./senderInfo.json');
+
 // 메일발송 객체
 const mailSender = {
+  
   // 메일발송 함수
   sendGmail: function (param) {
     var transporter = nodemailer.createTransport({
@@ -20,7 +22,8 @@ const mailSender = {
       from: senderInfo.user, // 보내는 메일의 주소
       to: param.toEmail, // 수신할 이메일
       subject: param.subject, // 메일 제목
-      text: param.text // 메일 내용
+      text: '인증번호'+ param.text // 메일 내용
+      
     };
     
     // 메일 발송    

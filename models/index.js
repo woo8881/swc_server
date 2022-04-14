@@ -44,6 +44,7 @@ db.Likes = require('./likes')(sequelize, Sequelize);
 db.Team = require('./team')(sequelize, Sequelize);
 db.Member = require('./member')(sequelize, Sequelize);
 db.Photo = require('./photo')(sequelize, Sequelize);
+db.Mail = require('./mail')(sequelize, Sequelize);
 // 관계형 지정
 require('./user/foreignKey')(db);
 require('./board/foreignKey')(db);
@@ -52,5 +53,6 @@ require('./likes/foreignKey')(db);
 require('./team/foreignKey')(db);
 require('./member/foreignKey')(db);
 require('./photo/foreignKey')(db);
+require('./mail/foreignKey')(db);
 
 module.exports = db;

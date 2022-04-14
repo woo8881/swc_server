@@ -12,28 +12,10 @@ sequelize.query("SET NAMES UTF8");
 const nodemailer = require('nodemailer');
 const res = require("express/lib/response");
 const { resolve } = require("app-root-path");
-const mailer = require('../../config/mail');
+
+
 //Todo social connet login Api will create
-
 module.exports = {
-  
-  mail:(email)=>{
-    return new Promise((resolve)=>{
-      
-      let emailParam = {
-      toEmail: email,     // 수신할 이메일
-  
-      subject: '명지전문대 소프트웨어콘텐츠과 회원가입 인증코드',   // 메일 제목
-  
-      text: `인증번호`                // 메일 내용
-    };
-  
-    mailer.sendGmail(emailParam)
-
-    emailParam !== null ? resolve(emailParam) : resolve(false);
-    })
-  },
-
   login: (body, hash) => {
     return new Promise((resolve) => {
       User.findOne({

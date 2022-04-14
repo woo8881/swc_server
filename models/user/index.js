@@ -16,11 +16,11 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING(255),
         allowNull: false,
       },
-      user_email: {
-        type: DataTypes.STRING(255),
-        allowNull: false,
-        unique: true,
-      },
+      // user_email: {
+      //   type: DataTypes.STRING(255),
+      //   allowNull: false,
+      //   unique: true,
+      // },
       user_tel: {
         type: DataTypes.STRING(255),
         allowNull: false,
@@ -51,10 +51,13 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING(255),
         allowNull: false,
       },
-
       user_image: {
         type: DataTypes.STRING(255),
         allowNull: true,
+      },
+      user_mail_key:{
+        type: DataTypes.STRING(255),
+        allowNull: true
       }
       // user_grade: {
       //   type: DataTypes.STRING(255),
