@@ -7,25 +7,27 @@ const salt = require(path.join(__dirname, "../../config", "config.json")).salt;
 const jwt = require("../../jwt/authorization");
 const { status } = require("express/lib/response");
 const { util } = require("../../node_modules/util");
-const mailer = require('../../config/mail');
+
 // const jwt = require('jsonwebtoken')
 
 module.exports = {
 
   mail:(req, res) =>{
     const { email }  = req.body;
+    userService.mail(email).then((result)=>{
+      let obj ={};
+      if (result == false){
+        obj["suc"] == false;
+        obj["err"] == "메일 보내기 실패"
+        res.send(obj);
+      } else{
+        obj["suc"] =true;
+        obj["email"] = result;
+        res.send(obj);
+      }
+    })
+  
 
-    let emailParam = {
-      toEmail: email,     // 수신할 이메일
-  
-      subject: 'New Email From Gyunny',   // 메일 제목
-  
-      text: `Gyunny 회원님!`                // 메일 내용
-    };
-  
-    mailer.sendGmail(emailParam);
-  
-    res.status(200).send("성공");
     
   },
 
