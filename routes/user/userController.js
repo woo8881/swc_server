@@ -7,8 +7,29 @@ const salt = require(path.join(__dirname, "../../config", "config.json")).salt;
 const jwt = require("../../jwt/authorization");
 const { status } = require("express/lib/response");
 const { util } = require("../../node_modules/util");
+const mailer = require('../../config/mail');
 // const jwt = require('jsonwebtoken')
+
 module.exports = {
+
+  mail:(req, res) =>{
+    const { email }  = req.body;
+
+    let emailParam = {
+      toEmail: email,     // 수신할 이메일
+  
+      subject: 'New Email From Gyunny',   // 메일 제목
+  
+      text: `Gyunny 회원님!`                // 메일 내용
+    };
+  
+    mailer.sendGmail(emailParam);
+  
+    res.status(200).send("성공");
+    
+  },
+
+  
   login: (req, res) => {
     const body = req.body;
     const hash = hashing.enc(body.user_password, salt);
