@@ -12,7 +12,7 @@ const mailSender = {
     var transporter = nodemailer.createTransport({
       service: 'gmail',   // 메일 보내는 곳
       prot: 587,
-      host: 'smtp.gmlail.com',  
+      host: 'smtp.gmail.com',  
       secure: false,
       html: emailTemplate,
       requireTLS: true ,
