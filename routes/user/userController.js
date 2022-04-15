@@ -11,6 +11,24 @@ const { util } = require("../../node_modules/util");
 // const jwt = require('jsonwebtoken')
 
 module.exports = {
+
+  sendMail:(req, res) =>{
+    const { email }  = req.body;
+    const body =req.body;
+    userService.sendMail(email, body).then((result)=>{
+      let obj ={};
+      if (result == false){
+        obj["suc"] == false;
+        obj["err"] == "메일 보내기 실패"
+        res.send(obj);
+      } else{
+        obj["suc"] =true;
+        obj["email"] = result;
+        res.send(obj);
+      }
+    })
+  },
+  
   
   login: (req, res) => {
     const body = req.body;

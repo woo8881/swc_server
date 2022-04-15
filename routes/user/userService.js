@@ -6,16 +6,45 @@ const {
   Member,
   Board,
   Team,
+  Permission,
   Sequelize: { Op },
 } = require("../../models");
 sequelize.query("SET NAMES UTF8");
-const nodemailer = require('nodemailer');
+const nodemailer = require("nodemailer");
 const res = require("express/lib/response");
 const { resolve } = require("app-root-path");
-
+const mailer = require("../../config/mail");
 
 //Todo social connet login Api will create
 module.exports = {
+  sendMail: (email, body) => {
+    return new Promise((resolve) => {
+      var generateRandom = function (min, max) {
+        var ranNum = Math.floor(Math.random() * (max - min + 1)) + min;
+        return ranNum;
+      };
+      const number = generateRandom(111111, 999999);
+
+      let emailParam = {
+        toEmail: email, // 수신할 이메일
+
+        subject: "명지전문대 소프트웨어콘텐츠과 회원가입 인증코드", // 메일 제목
+
+        text: number, // 메일 내용
+      };
+    mailer.sendGmail(emailParam);
+
+        Permission.create({
+            permission_id: email,
+            mail_auth: number,
+            permission_value: false
+          }).then((result) => {
+              console.log(result)
+            result !== null ? resolve(result) : resolve(false);
+          });
+    });
+  },
+
   login: (body, hash) => {
     return new Promise((resolve) => {
       User.findOne({
@@ -42,7 +71,7 @@ module.exports = {
 
         .catch((err) => {
           resolve(result);
-          console.log(err)
+          console.log(err);
         });
     });
   },
@@ -76,7 +105,7 @@ module.exports = {
           console.log(result);
         })
         .catch((err) => {
-          console.log(err)
+          console.log(err);
         });
     });
   },
@@ -97,49 +126,53 @@ module.exports = {
           result == 1 ? resolve(true) : resolve(false);
         })
         .catch((err) => {
-          console.log(err)
+          console.log(err);
         });
     });
   },
   transMyInfo: (body, imgData) => {
     return new Promise((resolve) => {
-      if(imgData==null){
+      if (imgData == null) {
         User.update(
           {
             user_tel: body.user_tel,
             user_email: body.user_email,
             user_nickname: body.user_nickname,
           },
-  
+
           {
             where: {
               user_id: body.user_id,
             },
           }
-        ) .then((result) => {
-          result == 1 ? resolve(result) : resolve(false);
-        }).catch((err) => {
-          console.log(err)
-        });
-      }else{
-         User.update(
+        )
+          .then((result) => {
+            result == 1 ? resolve(result) : resolve(false);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } else {
+        User.update(
           {
             user_tel: body.user_tel,
             user_email: body.user_email,
             user_nickname: body.user_nickname,
             user_image: imgData.path,
           },
-  
+
           {
             where: {
               user_id: body.user_id,
             },
           }
-        ) .then((result) => {
-          result == 1 ? resolve(result) : resolve(false);
-        }).catch((err) => {
-          console.log(err)
-        });
+        )
+          .then((result) => {
+            result == 1 ? resolve(result) : resolve(false);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }
     });
   },
@@ -207,12 +240,14 @@ module.exports = {
         where: {
           user_id: myBoard,
         },
-      }).then((result) => {
-        console.log(result);
-        result !== null ? resolve(result) : resolve(false);
-      }).catch((err) => {
-        console.log(err)
-      });
+      })
+        .then((result) => {
+          console.log(result);
+          result !== null ? resolve(result) : resolve(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     });
   },
 };

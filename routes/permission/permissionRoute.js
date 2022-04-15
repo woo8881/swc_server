@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const mailController = require('./mailController');
+const permissionController = require('./permissionController');
 // const authUtil = require('../../middlewares/auth').checkToken
 // 메일 보내기
-router.post('/sendMail', mailController.sendMail);
+router.post('/sendMail', permissionController.sendMail);
 // 메일 확인하기
-router.post('/checkMail', mailController.checkMail);
+router.post('/checkMail', permissionController.checkMail);
 // //공모전게시판 수정
 // router.post('/remakeContest',contestController.remakeContest);
 // //공모전게시판 삭제

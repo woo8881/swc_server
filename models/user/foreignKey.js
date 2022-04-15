@@ -26,8 +26,8 @@ module.exports = (db) => {
       });
 
       
-      db.User.belongsTo(db.Mail, {
-        foreignKey: "mail_id"
+      db.User.belongsTo(db.Permission, {
+        foreignKey: "permission_id"
     });
     
   };
