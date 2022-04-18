@@ -11,7 +11,7 @@ const mailSender = {
   sendGmail: function (param) {
     var transporter = nodemailer.createTransport({
       service: 'gmail',   // 메일 보내는 곳
-      prot: 587,
+      port: 587,
       host: 'smtp.gmail.com',  
       secure: false,  
       requireTLS: true ,
