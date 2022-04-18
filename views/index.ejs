@@ -1,13 +1,25 @@
-<html>
-  <body>
-    <div style="font-size:13px;">
-		회원가입 해주셔서 감사합니다.
-	</div>
-	<div style="font-size:13px;">
-	  해당 메일은 <%= email %>이 정확한 이메일 주소인지 확인하는 메일입니다.
-	</div>
-    <div style="font-size:18px;">
-      인증코드는 [ <%= code %> ] 입니다.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+
+    <label class="control-label">{{__('email')}} {{__('auth')}}<span class="text-danger"> *</span> </label>
+    <div class="form-group m-b-20">
+      <input id="EA" name="EA" type="email" class="form-control form-control-lg inverse-mode" value ="{{email}}" placeholder="{{__('email')}}" data-parsley-error-message=null required >
+      <input id="CEA" name="CEA" type="text" class="form-control form-control-lg inverse-model mt-3 d-none" placeholder="{{__('authnum')}}" data-parsley-error-message="{{__('required_detail')}}" data-parsley-errors-container="#err-msg2" required >
+    <div class="d-flex justify-content-between align-items-center mt-2">
+    <div id="err-msg2" class="text-realred"></div>
+      <input type="button" id="sendBtn" class="btn btn-primary btn-block btn-lg ml-auto custombtn" value="{{__('send')}}" onclick="emailSend('EA')">
+      <input type="button" id="cerBtn" class="btn btn-primary btn-block btn-lg mt-0 ml-auto custombtn d-none" value="{{__('auth')}}" onclick="emailCer('CEA')">
+      <input type="hidden" id="hideCK" name="hideCK" value="">
     </div>
-  </body>
+  </div>
+    
+  
+</body>
 </html>

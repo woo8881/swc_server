@@ -6,7 +6,6 @@ const {
   Member,
   Board,
   Team,
-  Permission,
   Sequelize: { Op },
 } = require("../../models");
 sequelize.query("SET NAMES UTF8");
@@ -14,34 +13,37 @@ const nodemailer = require("nodemailer");
 const res = require("express/lib/response");
 const { resolve } = require("app-root-path");
 const mailer = require("../../config/mail");
+const ejs = require('ejs');
 
 //Todo social connet login Api will create
 module.exports = {
-  sendMail: (email, body) => {
+  sendMail: (email) => {
     return new Promise((resolve) => {
       var generateRandom = function (min, max) {
         var ranNum = Math.floor(Math.random() * (max - min + 1)) + min;
         return ranNum;
       };
-      const number = generateRandom(111111, 999999);
+      const code = generateRandom(111111, 999999);
+
+      let emailTemplate;
+    ejs.renderFile('C:/바탕화면/swc_server_ffff/views/register.ejs',  //ejs파일 위치 
+                   { email: email, code: code}, (err, data) => { //ejs mapping
+              if (err) { console.log(err) }
+              emailTemplate = data;
+        });
 
       let emailParam = {
         toEmail: email, // 수신할 이메일
 
         subject: "명지전문대 소프트웨어콘텐츠과 회원가입 인증코드", // 메일 제목
 
-        text: number, // 메일 내용
-      };
-    mailer.sendGmail(emailParam);
+        text: code, // 메일 내용
 
-        Permission.create({
-            permission_id: email,
-            mail_auth: number,
-            permission_value: false
-          }).then((result) => {
-              console.log(result)
-            result !== null ? resolve(result) : resolve(false);
-          });
+        html: emailTemplate
+      };
+      mailer.sendGmail(emailParam);
+
+      emailParam !== null ? resolve(emailParam) : resolve(false);
     });
   },
 

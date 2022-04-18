@@ -9,13 +9,17 @@ const { status } = require("express/lib/response");
 const { util } = require("../../node_modules/util");
 
 // const jwt = require('jsonwebtoken')
-
+const nodemailer = require("nodemailer");
+const aws = require("@aws-sdk/client-ses");
+const ejs = require('ejs');
+const crypto = require("crypto");
+process.env.AWS_ACCESS_KEY_ID = 'EXAMPLEIDKEY'; // aws access key
+process.env.AWS_SECRET_ACCESS_KEY = 'EXAMPLEACCESSKEYPASSWORD' // aws secret access key
 module.exports = {
 
   sendMail:(req, res) =>{
     const { email }  = req.body;
-    const body =req.body;
-    userService.sendMail(email, body).then((result)=>{
+    userService.sendMail(email).then((result)=>{
       let obj ={};
       if (result == false){
         obj["suc"] == false;
