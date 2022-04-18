@@ -1,6 +1,7 @@
 const winston = require('winston');
 require('winston-daily-rotate-file');
-const logDir = 'logs';
+var fs = require('fs');
+const logDir = '${__dirname}/logs';
 
 const levels = {
     error: 0,
