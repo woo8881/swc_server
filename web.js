@@ -12,7 +12,7 @@ var path = require('path');
 
 var url = require('url');
 var fs = require('fs');
-const logger = require('./config/logger');
+// const logger = require('./config/logger');
 
 // app.use(((req, res, next)=>{
 //   logger.info('로그 출력 test용 middleware');

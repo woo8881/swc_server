@@ -22,6 +22,7 @@ module.exports = {
     userService.sendMail(email).then((result)=>{
       let obj ={};
       if (result == false){
+        logger.error('메일 보내기 실패');
         obj["suc"] == false;
         obj["err"] == "메일 보내기 실패"
         res.send(obj);
