@@ -27,6 +27,7 @@ module.exports = {
         res.send(obj);
       } else{
         delete result.html
+        logger.info('메일 보내기');
         obj["suc"] =true;
         obj["email"] = result;
         res.send(obj);
