@@ -1,7 +1,7 @@
 const winston = require('winston');
 require('winston-daily-rotate-file');
 var fs = require('fs');
-const logDir = '${__dirname}/logs';
+const logDir = '/home/hosting_users/bcd1031/apps/bcd1031_swc/logs';
 
 const levels = {
     error: 0,
