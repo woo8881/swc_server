@@ -61,6 +61,11 @@ app.use(
   express.static('/home/hosting_users/bcd1031/apps/bcd1031_swc/images')
 );
 
+app.use(
+  "/home/hosting_users/bcd1031/apps/bcd1031_swc/logs",
+  express.static('/home/hosting_users/bcd1031/apps/bcd1031_swc/logs')
+);
+
 app.get('/', function(req, res){
   res.render('view')
 })
