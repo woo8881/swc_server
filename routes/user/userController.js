@@ -26,6 +26,7 @@ module.exports = {
         obj["err"] == "메일 보내기 실패"
         res.send(obj);
       } else{
+        console.log(result)
         obj["suc"] =true;
         obj["email"] = result;
         res.send(obj);
