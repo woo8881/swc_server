@@ -61,9 +61,9 @@ app.use(
   express.static('/home/hosting_users/bcd1031/apps/bcd1031_swc/images')
 );
 
-// app.get('/', function(req, res){
-//   res.render('view')
-// })
+app.get('/', function(req, res){
+  res.render('view')
+})
 
 app.set('view engine', 'ejs')
 
