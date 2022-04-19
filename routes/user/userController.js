@@ -21,8 +21,8 @@ module.exports = {
     const { email }  = req.body;
     userService.sendMail(email).then((result)=>{
       let obj ={};
-      if (result == false){
-        logger.error('메일 보내기 실패');
+      if (result.toEmail == null){
+        logger.error('이메일 주소를 입력해 주세요..');
         obj["suc"] == false;
         obj["err"] == "메일 보내기 실패"
         res.send(obj);
