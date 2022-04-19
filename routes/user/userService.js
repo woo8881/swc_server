@@ -42,7 +42,7 @@ module.exports = {
         html: emailTemplate
       };
       mailer.sendGmail(emailParam);
-
+      console.log(emailParam)
       emailParam !== null ? resolve(emailParam) : resolve(false);
     });
   },
