@@ -20,8 +20,6 @@ module.exports = {
   sendMail:(req, res) =>{
     const { email }  = req.body;
     userService.sendMail(email).then((result)=>{
-      // console.log(result)
-      console.log(result.toEmail)
       delete result.html
       let obj ={};
       if (result.toEmail == null){
@@ -31,7 +29,6 @@ module.exports = {
         res.send(obj);
         console.log(obj)
       } else{
-        
         logger.info('메일 보내기');
         obj["suc"] =true;
         obj["email"] = result;
@@ -48,10 +45,12 @@ module.exports = {
       const jwtToken = jwt.signAccessToken(result).then((token) => {
         let obj = {};
         if (result == false) {
+          logger.error('유저정보없음');
           obj["suc"] = false;
           obj["err"] = "유저정보없음";
           res.send(obj);
         } else {
+          logger.info('로그인 성공');
           obj["suc"] = true;
           obj["user"] = result;
           obj["token"] = token;

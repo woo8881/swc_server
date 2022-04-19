@@ -71,6 +71,7 @@ module.exports = {
         })
 
         .catch((err) => {
+          logger.error('에러');
           resolve(result);
           console.log(err);
         });
