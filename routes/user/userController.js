@@ -20,6 +20,8 @@ module.exports = {
   sendMail:(req, res) =>{
     const { email }  = req.body;
     userService.sendMail(email).then((result)=>{
+      console.log(result)
+      console.log(result.toEmail)
       let obj ={};
       if (result.toEmail == null){
         logger.info('이메일 주소를 입력해 주세요.. ex) email : test@naver.com');
