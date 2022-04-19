@@ -15,18 +15,17 @@ moment.tz.setDefault("Asia/Seoul");
 module.exports = {
   photoUpdate: (body, imgData) => {
     return new Promise((resolve) => {
-        
       Photo.create({
-        photo_url:imgData,
-        board_id:body.board_id
-      }).then((result) => {
-       result!==null ? resolve(result) : resolve(false);
-    }).catch((err) => {
-      console.log(err)
+        photo_url: imgData,
+        board_id: body.board_id,
+      })
+        .then((result) => {
+          result !== null ? resolve(result) : resolve(false);
+        })
+        .catch((err) => {
+          logger.error("에러");
+          console.log(err);
+        });
     });
-  })
-}
-
-
-
-}
+  },
+};

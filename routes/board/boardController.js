@@ -14,10 +14,12 @@ module.exports = {
             // console.log(result)
             let obj={}
             if(result==false){
+                logger.error('글쓰기 실패');
                 obj["suc"]=false;
                 obj["err"]="글쓰기 실패"
                 res.send(obj)
             }else{
+                logger.info('글쓰기');
                 obj["suc"]=true;
                 obj["board"] = result;
                 res.send(obj);
@@ -32,10 +34,12 @@ module.exports = {
         boardService.remakeBoard(body, imgData).then((result)=>{
             let obj={}
             if(result==false){
+                logger.error('수정 실패');
                 obj["suc"]=false;
                 obj["err"]="수정 실패"
                 res.send(obj)
             }else{
+                logger.info('수정');
                 obj["suc"]=true;
                 res.send(obj);
             }
@@ -47,10 +51,12 @@ module.exports = {
         boardService.deleteBoard(boardId).then(result=>{
             let obj={}
             if(result==false){
+                logger.error('삭제 실패');
                 obj["suc"]=false;
                 obj["err"]="삭제 실패"
                 res.send(obj)
             }else{
+                logger.info('삭제');
                 obj["suc"]=true;
                 res.send(obj);
             }
@@ -63,10 +69,12 @@ module.exports = {
         boardService.inquiryBoard(boardType, page).then(result=>{
             let obj={}
             if(result==false){
+                logger.error('게시판 찾기 실패');
                 obj["suc"]=false;
-                obj["err"]="찾기 실패"
+                obj["err"]="게시판 찾기 실패"
                 res.send(obj)
             }else{
+                logger.info('게시판 찾기');
                 obj["suc"]=true;
                 obj["board"]=result;
                 res.send(obj);
@@ -78,10 +86,12 @@ module.exports = {
         boardService.inquiryBulletin(boardContent).then(obj=>{
             let obj2={}
             if(obj==false){
+                logger.error('게시글 찾기 실패');
                 obj2["suc"]=false;
-                obj2["err"]="찾기 실패"
+                obj2["err"]="게시글 찾기 실패"
                 res.send(obj2)
             }else{
+                logger.info('게시글 찾기');
                 obj2["suc"]=true;
                 obj2["board"]=obj
                 res.send(obj2);
@@ -95,10 +105,12 @@ module.exports = {
         boardService.search(search, page).then(result=>{
             let obj={}
             if(result==false){
+                logger.error('검색 실패');
                 obj["suc"]=false;
-                obj["err"]="찾기 실패"
+                obj["err"]="검색 실패"
                 res.send(obj)
             }else{
+                logger.info('검색');
                 obj["suc"]=true;
                 obj["board"]=result;
                 res.send(obj);

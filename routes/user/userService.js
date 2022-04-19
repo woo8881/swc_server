@@ -107,6 +107,7 @@ module.exports = {
           console.log(result);
         })
         .catch((err) => {
+          logger.error('에러');
           console.log(err);
         });
     });
@@ -128,6 +129,7 @@ module.exports = {
           result == 1 ? resolve(true) : resolve(false);
         })
         .catch((err) => {
+          logger.error('에러');
           console.log(err);
         });
     });
@@ -152,6 +154,7 @@ module.exports = {
             result == 1 ? resolve(result) : resolve(false);
           })
           .catch((err) => {
+            logger.error('에러');
             console.log(err);
           });
       } else {
@@ -173,6 +176,7 @@ module.exports = {
             result == 1 ? resolve(result) : resolve(false);
           })
           .catch((err) => {
+            logger.error('에러');
             console.log(err);
           });
       }
@@ -192,6 +196,7 @@ module.exports = {
           result === 1 ? resolve(true) : resolve(false);
         })
         .catch((err) => {
+          logger.error('에러');
           resolve(false);
           throw err;
         });
@@ -219,6 +224,7 @@ module.exports = {
           result !== null ? resolve(result) : resolve(false);
         })
         .catch((err) => {
+          logger.error('에러');
           resolve(false);
           throw err;
         });
@@ -248,6 +254,7 @@ module.exports = {
           result !== null ? resolve(result) : resolve(false);
         })
         .catch((err) => {
+          logger.error('에러');
           console.log(err);
         });
     });

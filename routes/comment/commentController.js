@@ -6,10 +6,12 @@ module.exports = {
         commentService.makeComment(body).then(result => {
             let obj={}
             if(result==false){
+                logger.error('댓글 쓰기 실패');
                 obj["suc"]=false;
                 obj["err"]="댓글 쓰기 실패"
                 res.send(obj)
             }else{
+                logger.info('댓글 쓰기');
                 obj["suc"]=true;
                 obj["comment"]=result
                 res.send(obj);
@@ -21,10 +23,12 @@ module.exports = {
          commentService.remakeComment(body).then(result => {
              let obj={}
              if(result==false){
+                logger.error('댓글 수정 실패');
                  obj["suc"]=false;
                  obj["err"]="댓글 수정 실패"
                  res.send(obj)
              }else{
+                logger.info('댓글 수정');
                  obj["suc"]=true;
                  res.send(obj);
              }
@@ -35,10 +39,12 @@ module.exports = {
          commentService.deleteComment(del).then(result => {
              let obj={}
              if(result==false){
+                logger.error('댓글 삭제 실패');
                  obj["suc"]=false;
                  obj["err"]="댓글 삭제 실패"
                  res.send(obj)
              }else{
+                logger.info('댓글 삭제');
                  obj["suc"]=true;
                  res.send(obj);
              }
