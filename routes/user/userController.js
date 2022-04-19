@@ -21,16 +21,17 @@ module.exports = {
     const { email }  = req.body;
     userService.sendMail(email).then((result)=>{
       // console.log(result)
-      // console.log(result.toEmail)
+      console.log(result.toEmail)
+      delete result.html
       let obj ={};
       if (result.toEmail == null){
-        // logger.info('이메일 주소를 입력해 주세요.. ex) email : test@naver.com');
+        logger.info('이메일 주소를 입력해 주세요.. ex) email : test@naver.com');
         obj["suc"] == false;
         obj["err"] == "메일 보내기 실패"
         res.send(obj);
         console.log(obj)
       } else{
-        delete result.html
+        
         logger.info('메일 보내기');
         obj["suc"] =true;
         obj["email"] = result;
