@@ -33,7 +33,6 @@ module.exports = {
           board_img: "null",
         })
           .then((result) => {
-            console.log(result);
             result !== null ? resolve(result) : resolve(false);
           })
           .catch((err) => {

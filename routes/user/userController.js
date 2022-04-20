@@ -74,7 +74,7 @@ module.exports = {
       }
         else if(result == "error"){
           logger.error('회원가입 실패');
-          obj["err"] = "중복이거나 필수로 들어가야하는 값이 없음";
+          obj["err"] = "중복이거나 필수값이 없음";
           res.send(obj);
         }
        else{
