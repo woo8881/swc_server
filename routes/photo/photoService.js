@@ -15,7 +15,7 @@ moment.tz.setDefault("Asia/Seoul");
 module.exports = {
   photoUpdate: (body, imgData) => {
     return new Promise((resolve) => {
-      Photo.create({
+      Photo.bulkCreate({
         photo_url: imgData,
         board_id: body.board_id,
       })
