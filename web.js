@@ -55,11 +55,16 @@ app.use('/', router);
 // )
 // 
 
+
 const WebSocket = require("ws");
 const ws = new WebSocket.Server({port:8001});
 
+let user_id = 0;
+let ALL_WS = []; //전체 유저들을 통제할 수 있도록 각 유저에 대한 WEBSOCKET, USER_ID 저장
+
 ws.on("connection", function connect(ws, req){ //클라이언트가 연결되었을 떄 실행
-  console.log("NEW USER CONNECT");
+  user_id++;
+  console.log("NEW USER CONNECT ("+user_id+")");
 });
 
 // http.createServer(app).listen(8001, () => {
