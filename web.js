@@ -29,22 +29,22 @@ app.engine("html", ejs.renderFile);
 sequelize.sync();
 app.use('/', router);
 
-app.set('port', process.env.PORT || 8001);
-app.use('/public', static(path.join(__dirname, 'public')));
+// app.set('port', process.env.PORT || 8001);
+// app.use('/public', static(path.join(__dirname, 'public')));
 
-//==== 서버 실행 ====//
-const httpServer = http.createServer(app).listen(app.get('port'), function(){
-    console.log('서버가 시작되었습니다. 포트 : ', app.get('port'));
-});
+// //==== 서버 실행 ====//
+// const httpServer = http.createServer(app).listen(app.get('port'), function(){
+//     console.log('서버가 시작되었습니다. 포트 : ', app.get('port'));
+// });
 
-//==== socket.io ====//
-const io = require("socket.io")(httpServer);
-console.log('socket.io 요청을 받아들일 준비가 되었습니다.');
+// //==== socket.io ====//
+// const io = require("socket.io")(httpServer);
+// console.log('socket.io 요청을 받아들일 준비가 되었습니다.');
 
-// 클라이언트가 연결했을 때의 이벤트 처리
-io.on("connection", (socket) => {
-    console.log('connection info : ', socket.request.connection._peername);
-});
+// // 클라이언트가 연결했을 때의 이벤트 처리
+// io.on("connection", (socket) => {
+//     console.log('connection info : ', socket.request.connection._peername);
+// });
 //파일 있는지 보는거
 
 // fs.readdir(
@@ -55,8 +55,12 @@ io.on("connection", (socket) => {
 // )
 // 
 
+const webSocket = require("ws");
+const ws = WebSocket.Server({port:8001});
 
-
+ws.on("connection", function connect(ws, req){ //클라이언트가 연결되었을 떄 실행
+  console.log("NEW USER CONNECT");
+});
 
 // http.createServer(app).listen(8001, () => {
 //   console.log("Express Server Start");
