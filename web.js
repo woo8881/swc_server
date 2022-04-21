@@ -55,7 +55,7 @@ app.use('/', router);
 // )
 // 
 
-const webSocket = require("ws");
+const WebSocket = require("ws");
 const ws = WebSocket.Server({port:8001});
 
 ws.on("connection", function connect(ws, req){ //클라이언트가 연결되었을 떄 실행
