@@ -56,7 +56,7 @@ app.use('/', router);
 // 
 
 
-const WebSocket = require("socket.io")(httpServer);
+const WebSocket = require("socket.io");
 const ws = new WebSocket.Server({port:8001});
 
 let user_id = 0;
