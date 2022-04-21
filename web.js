@@ -56,7 +56,7 @@ app.use('/', router);
 // 
 
 const WebSocket = require("ws");
-const ws = WebSocket.Server({port:8001});
+const ws = new WebSocket.Server({port:8001});
 
 ws.on("connection", function connect(ws, req){ //클라이언트가 연결되었을 떄 실행
   console.log("NEW USER CONNECT");
