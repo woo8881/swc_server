@@ -7,8 +7,17 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
     crossorigin="anonymous"></script>>
     <script>
+        let MY_USER_ID = ""; //나의 고유값
         function connect() {
             let websocket = new WebSocket("ww://localhost:8001");
+            websocket.onmessage = function(e){ //서버로부터 메시지가 올 떄, 이 이벤트가 실행
+                let message = JSON.parse(e.data);
+
+                if(message.code =="my_user_id"){
+                   MY_USER_ID = message.msg;
+                   alert("user_id 받음" + MY_USER_ID);
+                }
+            }
         }
         connect();
     </script>
