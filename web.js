@@ -14,6 +14,7 @@ var url = require('url');
 var fs = require('fs');
 global.logger || (global.logger = require('./config/logger'));  // → 전역에서 사용
 const morganMiddleware = require('./config/morganMiddleware');
+const logger = require('./config/logger');
 app.use(morganMiddleware);  // 콘솔창에 통신결과 나오게 해주는 것
 
 
@@ -31,6 +32,7 @@ app.use('/', router);
 
 http.createServer(app).listen(8001, () => {
   console.log("Express Server Start");
+  logger.info("express server start")
 });
 
 app.use(

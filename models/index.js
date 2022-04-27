@@ -36,7 +36,6 @@ db.sequelize
     });
 
 // 테이블 생성
-//wgeqwd
 db.User = require('./user')(sequelize, Sequelize);
 db.Board = require('./board')(sequelize, Sequelize);
 db.Comment = require('./comment')(sequelize, Sequelize);
