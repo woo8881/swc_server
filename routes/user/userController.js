@@ -60,6 +60,7 @@ module.exports = {
     });
   },
   signUp: (req, res) => {
+    console.log("test")
     //TODO: 회원가입
     const body = req.body;
     const hash = hashing.enc(body.user_password, salt);
