@@ -92,7 +92,6 @@ module.exports = {
           user_name: body.user_name,
           user_tel: body.user_tel,
           user_birth: body.user_birth,
-          user_email: body.user_email,
           user_gender: body.user_gender,
           user_nickname: body.user_nickname,
           user_pw_question: body.user_pw_question,
