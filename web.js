@@ -32,7 +32,7 @@ app.use('/', router);
 
 http.createServer(app).listen(8001, () => {
   console.log("Express Server Start");
-  logger.info("express server start")
+  logger.info("express server start");
 });
 
 app.use(
