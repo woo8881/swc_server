@@ -20,14 +20,15 @@ module.exports = {
   sendMail:(req, res) =>{
     const { email }  = req.body;
     userService.sendMail(email).then((result)=>{
+      delete result.html
       let obj ={};
-      if (result == false){
-        logger.error('메일 보내기 실패');
+      if (result.toEmail == null){
+        logger.info('이메일 주소를 입력해 주세요.. ex) email : test@naver.com');
         obj["suc"] == false;
         obj["err"] == "메일 보내기 실패"
         res.send(obj);
+        console.log(obj)
       } else{
-        delete result.html
         logger.info('메일 보내기');
         obj["suc"] =true;
         obj["email"] = result;
@@ -44,10 +45,12 @@ module.exports = {
       const jwtToken = jwt.signAccessToken(result).then((token) => {
         let obj = {};
         if (result == false) {
+          logger.error('유저정보없음');
           obj["suc"] = false;
           obj["err"] = "유저정보없음";
           res.send(obj);
         } else {
+          logger.info('로그인 성공');
           obj["suc"] = true;
           obj["user"] = result;
           obj["token"] = token;
@@ -64,15 +67,18 @@ module.exports = {
       // console.log(result);
       let obj = {};
       if (result == false) {
+        logger.error('회원가입 실패');
         obj["suc"] = false;
         obj["err"] = "아이디 or 이메일 or 번호 or 닉네임 중복";
         res.send(obj);
       }
         else if(result == "error"){
-          obj["err"] = "중복이거나 필수로 들어가야하는 값이 없음";
+          logger.error('회원가입 실패');
+          obj["err"] = "중복이거나 필수값이 없음";
           res.send(obj);
         }
        else{
+        logger.info('회원가입');
         obj["suc"] = true;
         res.send(obj);
       }
@@ -84,10 +90,12 @@ module.exports = {
     userService.transPassword(hash, body).then((result) => {
       let obj = {};
       if (result == false) {
+        logger.error('비밀번호 변경 실패');
         obj["suc"] = false;
         obj["err"] = "아이디 or 비밀번호 찾기 질문,답변이 틀리거나 비밀번호가 변경하기 전 이랑 같음";
         res.send(obj);
       } else {
+        logger.info('비밀번호 변경');
         obj["suc"] = true;
         res.send(obj);
       }
@@ -102,10 +110,12 @@ module.exports = {
       console.log(result)
       let obj = {};
       if (result == false) {
+        logger.error('정보 변경 실패');
         obj["suc"] = false;
         obj["err"] = "아이디가 틀리거나 수정된 정보가 변경하기 전 이랑 같거나 변경할 수 없는 정보임";
         res.send(obj);
       } else {
+        logger.info('정보 변경');
         obj["suc"] = true;
         // obj["result"] =result;
         // obj["transInfo"]  =result;
@@ -119,10 +129,12 @@ module.exports = {
     userService.deleteUser(body, hash).then((result) => {
       let obj = {};
       if (result == false) {
+        logger.error('유저 삭제 실패');
         obj["suc"] = false;
         obj["err"] = "아이디가 없거나 비밀번호가 틀림";
         res.send(obj);
       } else {
+        logger.info('유저 삭제');
         obj["suc"] = true;
         res.send(obj);
       }
@@ -134,10 +146,12 @@ module.exports = {
     userService.viewMyInfo(views).then((result) => {
       let obj = {};
       if (result == false) {
+        logger.error('내정보 보기 실패');
         obj["suc"] = false;
         obj["err"] = "아이디가 없음";
         res.send(obj);
       } else {console.log(result);
+        logger.info('내정보 보기');
         obj["suc"] = true;
         obj["info"] = result;
         res.send(obj);
@@ -150,10 +164,12 @@ module.exports = {
     userService.viewMyBoard(myBoard, page).then((result) => {
       let obj = {};
       if (result == false) {
+        logger.error('내 게시글 보기 실패');
         obj["suc"] = false;
         obj["err"] = "아이디가 틀리거나 게시글이 없음";
         res.send(obj);
       } else {
+        logger.info('내 게시글 보기');
         obj["suc"] = true;
         obj["boardList"] = result;
         res.send(obj);

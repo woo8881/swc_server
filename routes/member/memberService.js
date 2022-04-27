@@ -19,25 +19,30 @@ module.exports = {
           user_id: user,
           team_id: team,
         },
-      }).then((result) => {
-        if (result[1] !== true) {
-          Member.destroy({
-            where: {
-              member_id: result[0].member_id,
-            },
-          }).then((desresult) => {
-            // console.log(desresult)
-            desresult[1] !== 1 ? resolve(desresult) : resolve(false);
-          }).catch((err) => {
-            console.log(err)
-          });
-        } else {
-          // console.log(result)
-          result[1] == 1 ? resolve(result) : resolve(false);
-        }
-      }).catch((err) => {
-        console.log(err)
-      });
+      })
+        .then((result) => {
+          if (result[1] !== true) {
+            Member.destroy({
+              where: {
+                member_id: result[0].member_id,
+              },
+            })
+              .then((desresult) => {
+                // console.log(desresult)
+                desresult[1] !== 1 ? resolve(desresult) : resolve(false);
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+          } else {
+            // console.log(result)
+            result[1] == 1 ? resolve(result) : resolve(false);
+          }
+        })
+        .catch((err) => {
+          logger.error("에러");
+          console.log(err);
+        });
     });
   },
 };

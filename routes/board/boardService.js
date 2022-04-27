@@ -18,8 +18,7 @@ require("moment-timezone");
 module.exports = {
   makeBoard: (body, imgData) => {
     return new Promise((resolve) => {
-     
-      if(imgData == null){
+      if (imgData == null) {
         Board.create({
           // include:{model:User},
 
@@ -31,32 +30,36 @@ module.exports = {
           board_state: "생성",
           board_detail: body.board_detail,
           user_id: body.user_id,
-          board_img:"null"
-        }).then((result) => {
-          console.log(result)
-          result !== null ? resolve(result) : resolve(false);
-        }).catch((err) => {
-          console.log(err)
-        });
-      }else{Board.create({
-        board_title: body.board_title,
-        board_content: body.board_content,
-        board_date: moment().format("YYYY-MM-DD"),
-        board_type: body.board_type,
-        board_hits: 0,
-        board_img: imgData.path,
-        board_state: "생성",
-        board_detail: body.board_detail,
-        user_id: body.user_id,
-      }).then((result) => {
-        result !== null ? resolve(result) : resolve(false);
-      }).catch((err) => {
-        console.log(err)
-      });
-    
-    }
-      
-    })
+          board_img: "null",
+        })
+          .then((result) => {
+            result !== null ? resolve(result) : resolve(false);
+          })
+          .catch((err) => {
+            logger.error("에러");
+            console.log(err);
+          });
+      } else {
+        Board.create({
+          board_title: body.board_title,
+          board_content: body.board_content,
+          board_date: moment().format("YYYY-MM-DD"),
+          board_type: body.board_type,
+          board_hits: 0,
+          board_img: imgData.path,
+          board_state: "생성",
+          board_detail: body.board_detail,
+          user_id: body.user_id,
+        })
+          .then((result) => {
+            result !== null ? resolve(result) : resolve(false);
+          })
+          .catch((err) => {
+            logger.error("에러");
+            console.log(err);
+          });
+      }
+    });
     // .catch((err) => {
     //   resolve(false);
     //   throw err;
@@ -78,17 +81,25 @@ module.exports = {
         where: {
           board_type: boardType,
         },
-      }).then((result) => {
-        result !== null ? resolve(result) : resolve(false);
-      }).catch((err) => {
-        console.log(err)
-      });
+      })
+        .then((result) => {
+          result !== null ? resolve(result) : resolve(false);
+        })
+        .catch((err) => {
+          logger.error("에러");
+          console.log(err);
+        });
     });
   },
   inquiryBulletin: (boardContent) => {
     return new Promise((resolve) => {
       Board.findOne({
-        include: [{ model: Likes }, { model: Comment }, { model: Team },{model:User}],
+        include: [
+          { model: Likes },
+          { model: Comment },
+          { model: Team },
+          { model: User },
+        ],
 
         where: {
           board_id: boardContent,
@@ -100,83 +111,89 @@ module.exports = {
         ],
 
         raw: false,
-      }).then((result) => {
-       
-        Board.increment(
-          {
-            board_hits: 1,
-          },
-          {
-            where: {
-              board_id: boardContent,
+      })
+        .then((result) => {
+          Board.increment(
+            {
+              board_hits: 1,
             },
-          }
-        )
-          .then(() => {
-            console.log(result)
-            let obj = {};
-            obj["likes_count"] = result.likes.length;
-            obj["result"] = result.dataValues;
-            delete result.dataValues.likes;
-            obj !== null ? resolve(obj) : resolve(false);
-          })
-          .catch((err) => {
-            console.log(err)
-          });
-      }).catch((err) => {
-
-        console.log(err)
-      });
+            {
+              where: {
+                board_id: boardContent,
+              },
+            }
+          )
+            .then(() => {
+              console.log(result);
+              let obj = {};
+              obj["likes_count"] = result.likes.length;
+              obj["result"] = result.dataValues;
+              delete result.dataValues.likes;
+              obj !== null ? resolve(obj) : resolve(false);
+            })
+            .catch((err) => {
+              logger.error("에러");
+              console.log(err);
+            });
+        })
+        .catch((err) => {
+          logger.error("에러");
+          console.log(err);
+        });
     });
   },
   remakeBoard: (body, imgData) => {
     return new Promise((resolve) => {
-      if(imgData==null){
+      if (imgData == null) {
         Board.update(
           {
             board_content: body.board_content,
             board_title: body.board_title,
-            board_date:  moment().format("YYYY-MM-DD"),
+            board_date: moment().format("YYYY-MM-DD"),
             board_type: body.board_type,
             board_state: "수정",
           },
           {
             where: {
-              board_id: body.board_id
-            }
+              board_id: body.board_id,
+            },
           }
-        ) .then((result) => {
-          result == 1 ? resolve(true) : resolve(false);
-          console.log(body);
-        }).catch((err) => {
-          console.log(err)
-        });
-      }else{
+        )
+          .then((result) => {
+            result == 1 ? resolve(true) : resolve(false);
+            console.log(body);
+          })
+          .catch((err) => {
+            logger.error("에러");
+            console.log(err);
+          });
+      } else {
         Board.update(
           {
             board_content: body.board_content,
             board_title: body.board_title,
-            board_date:  moment().format("YYYY-MM-DD"),
+            board_date: moment().format("YYYY-MM-DD"),
             board_type: body.board_type,
             board_img: imgData.path,
             board_state: "수정",
           },
           {
             where: {
-              board_id: body.board_id
-            }
+              board_id: body.board_id,
+            },
           }
-        ) .then((result) => {
-          console.log(result);
-          console.log("result");
-          result == 1 ? resolve(true) : resolve(false);
-          // console.log(body);
-        }).catch((err) => {
-          console.log(err)
-        });
+        )
+          .then((result) => {
+            console.log(result);
+            console.log("result");
+            result == 1 ? resolve(true) : resolve(false);
+            // console.log(body);
+          })
+          .catch((err) => {
+            logger.error("에러");
+            console.log(err);
+          });
       }
-    
-     
     });
   },
 
@@ -192,6 +209,7 @@ module.exports = {
           // console.log(body);
         })
         .catch((err) => {
+          logger.error("에러");
           console.log(err);
         });
     });
@@ -219,6 +237,7 @@ module.exports = {
           result !== null ? resolve(result) : resolve(false);
         })
         .catch((err) => {
+          logger.error("에러");
           console.log(err);
         });
     });

@@ -26,7 +26,7 @@ module.exports = {
       const code = generateRandom(111111, 999999);
 
       let emailTemplate;
-    ejs.renderFile('/home/hosting_users/bcd1031/apps/bcd1031_swc/views/register.ejs',  //ejs파일 위치 
+    ejs.renderFile('/home/hosting_users/bcd1031/apps/bcd1031_swc/views/register.ejs',  //ejs파일 위치
                    { email: email, code: code}, (err, data) => { //ejs mapping
               if (err) { console.log(err) }
               emailTemplate = data;
@@ -42,9 +42,8 @@ module.exports = {
         html: emailTemplate
       };
       mailer.sendGmail(emailParam);
-
       emailParam !== null ? resolve(emailParam) : resolve(false);
-    });
+    })
   },
 
   login: (body, hash) => {
@@ -72,6 +71,7 @@ module.exports = {
         })
 
         .catch((err) => {
+          logger.error('에러');
           resolve(result);
           console.log(err);
         });
@@ -107,6 +107,7 @@ module.exports = {
           console.log(result);
         })
         .catch((err) => {
+          logger.error('에러');
           console.log(err);
         });
     });
@@ -128,6 +129,7 @@ module.exports = {
           result == 1 ? resolve(true) : resolve(false);
         })
         .catch((err) => {
+          logger.error('에러');
           console.log(err);
         });
     });
@@ -152,6 +154,7 @@ module.exports = {
             result == 1 ? resolve(result) : resolve(false);
           })
           .catch((err) => {
+            logger.error('에러');
             console.log(err);
           });
       } else {
@@ -173,6 +176,7 @@ module.exports = {
             result == 1 ? resolve(result) : resolve(false);
           })
           .catch((err) => {
+            logger.error('에러');
             console.log(err);
           });
       }
@@ -192,6 +196,7 @@ module.exports = {
           result === 1 ? resolve(true) : resolve(false);
         })
         .catch((err) => {
+          logger.error('에러');
           resolve(false);
           throw err;
         });
@@ -219,6 +224,7 @@ module.exports = {
           result !== null ? resolve(result) : resolve(false);
         })
         .catch((err) => {
+          logger.error('에러');
           resolve(false);
           throw err;
         });
@@ -248,6 +254,7 @@ module.exports = {
           result !== null ? resolve(result) : resolve(false);
         })
         .catch((err) => {
+          logger.error('에러');
           console.log(err);
         });
     });
