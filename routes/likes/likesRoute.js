@@ -3,7 +3,7 @@ const router = express.Router();
 const likesController = require('./likesController');
 const authUtil = require('../../middlewares/auth').checkToken
 // 좋아요 누르고 관심글에 추가
-router.post('/likes', authUtil, likesController.likes);
+router.post('/likes', /*authUtil,*/ likesController.likes);
 // 관심글 보기
 // router.get('/favorites', contestController.inquiryContest);
 // //공모전게시판 수정

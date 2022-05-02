@@ -9,15 +9,15 @@ router.post('/login',userController.login);
 //회원가입
 router.post('/signUp', userController.signUp);
 //비밀번호 변경
-router.post('/transPassword', authUtil, userController.transPassword);
+router.post('/transPassword', /*authUtil,*/ userController.transPassword);
 //개인정보 수정
-router.post('/transMyInfo',upload, authUtil, userController.transMyInfo);
+router.post('/transMyInfo',upload, /*authUtil,*/ userController.transMyInfo);
 //회원 탈퇴
-router.post('/deleteUser',authUtil, userController.deleteUser);
+router.post('/deleteUser', /*authUtil,*/ userController.deleteUser);
 //내정보 보기
-router.get('/viewMyInfo/:user_id', authUtil,userController.viewMyInfo);
+router.get('/viewMyInfo/:user_id', /*authUtil,*/userController.viewMyInfo);
 //내가 쓴 글 보기
-router.get('/viewMyBoard/:user_id/:page', authUtil,userController.viewMyBoard);
+router.get('/viewMyBoard/:user_id/:page', /*authUtil,*/userController.viewMyBoard);
 //메일 보내기
 router.post('/sendMail', userController.sendMail);
 
