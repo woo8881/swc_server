@@ -82,7 +82,6 @@ module.exports = {
       User.findOrCreate({
         where: {
           user_id: body.user_id,
-          user_email: body.user_email,
           user_nickname: body.user_nickname,
           user_tel: body.user_tel,
         },

@@ -54,10 +54,6 @@ module.exports = (sequelize, DataTypes) => {
       user_image: {
         type: DataTypes.STRING(255),
         allowNull: true,
-      },
-      user_mail_key:{
-        type: DataTypes.STRING(255),
-        allowNull: true
       }
       // user_grade: {
       //   type: DataTypes.STRING(255),
