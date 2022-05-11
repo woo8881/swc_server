@@ -29,7 +29,6 @@
 undefined
 undefined
 undefined
-undefined
 {"level":"info","message":"로그 출력 test용 middleware"}
 {"level":"error","message":"error 메시지"}
 {"level":"warn","message":"warn 메시지"}
