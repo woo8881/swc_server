@@ -14,13 +14,11 @@ const {
 sequelize.query("SET NAMES UTF8");
 moment.tz.setDefault("Asia/Seoul");
 require("moment-timezone");
-//Todo social connet login Api will create
 module.exports = {
   makeBoard: (body, imgData) => {
     return new Promise((resolve) => {
       if (imgData == null) {
         Board.create({
-          // include:{model:User},
 
           board_title: body.board_title,
           board_content: body.board_content,
@@ -60,10 +58,6 @@ module.exports = {
           });
       }
     });
-    // .catch((err) => {
-    //   resolve(false);
-    //   throw err;
-    // });
   },
 
   inquiryBoard: (boardType, page) => {

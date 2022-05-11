@@ -20,6 +20,4 @@ router.get('/viewMyInfo/:user_id', /*authUtil,*/userController.viewMyInfo);
 router.get('/viewMyBoard/:user_id/:page', /*authUtil,*/userController.viewMyBoard);
 //메일 보내기
 router.post('/sendMail', userController.sendMail);
-
-// router.post('/mail', userController.mail);
 module.exports = router;
