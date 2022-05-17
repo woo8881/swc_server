@@ -26,9 +26,9 @@ module.exports = (db) => {
       });
 
       
-      db.User.belongsTo(db.Permission, {
-        foreignKey: "permission_id"
-    });
+    //   db.User.belongsTo(db.Permission, {
+    //     foreignKey: "permission_id"
+    // });
     
   };
   
