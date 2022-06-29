@@ -24,8 +24,8 @@ module.exports = {
       let obj ={};
       if (result.toEmail == null){
         logger.info('이메일 주소를 입력해 주세요.. ex) email : test@naver.com');
-        obj["suc"] == false;
-        obj["err"] == "메일 보내기 실패"
+        obj["suc"] = false;
+        obj["err"] = "메일 보내기 실패"
         res.send(obj);
         console.log(obj)
       } else{
